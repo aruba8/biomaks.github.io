@@ -94,7 +94,7 @@ SOCIAL_ICONS = [
     ('http://twitter.com/biomehanik', 'Twitter', 'fa-twitter'),
     ('http://plus.google.com/+ErikKhalimov', 'Google+', 'fa-google-plus-square'),
     ('http://github.com/biomaks', 'GitHub', 'fa-github'),
-    ('feeds/all.atom.xml', 'RSS', 'fa-rss')
+    ('feeds/atom.xml', 'RSS', 'fa-rss')
 ]
 
 SITEMAP = {
