@@ -4,7 +4,7 @@ from __future__ import unicode_literals
 
 AUTHOR = u'Erik'
 SITENAME = u'qa7.ru'
-SITEURL = ''
+SITEURL = 'http://qa7.ru'
 
 SITE_AUTHOR = 'Erik Khalimov'
 TWITTER_USERNAME = '@biomehanik'
