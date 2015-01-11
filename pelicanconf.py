@@ -12,7 +12,7 @@ GOOGLE_PLUS_URL = 'https://plus.google.com/+ErikKhalimov'
 INDEX_DESCRIPTION = 'Website and blog of Erik Khalimov, a developer and tester from Moscow, RU.'
 BIO_TEXT = 'Blog about programming, testing and life'
 
-ARTICLE_URL = '{date:%Y}/{date:%m}/{slug}/'
+ARTICLE_URL = 'blog/{date:%Y}/{date:%m}/{date:%d}/{slug}/'
 ARTICLE_SAVE_AS = ARTICLE_URL + 'index.html'
 
 PAGE_URL = '{slug}/'
