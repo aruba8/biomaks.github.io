@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<!-- Basic Metas -->
+	<meta charset="utf-8">
+	<title>"Docker быстрый старт" | qa7.ru</title>
+	<meta name="description" content="Сегодня я хотел рассказать как пользоваться докером. Установка его вполне тривиальна и подробно расписана тут. Выбираете ОС, жмакаете и дальше действуйте по инструкции. Попробуем для начала запустить контейнер с mysql. Чтобы получить образ контейнера можно воспользоваться 2 путями: скачать его из репозитория явно, командой docker pull <image_name>' либо запустить контейнер ...">
+	<meta name="author" content="Erik Khalimov">
+	<link rel="author" href="https://plus.google.com/+ErikKhalimov"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<!-- Twitter Cards and Open Graph -->
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:creator" content="@biomehanik">
+	<meta name="twitter:domain" content="">
+	<meta name="twitter:site" content="@biomehanik">
+	<meta property="og:title" content=""Docker быстрый старт"">
+	<meta property="og:description" content="Сегодня я хотел рассказать как пользоваться докером. Установка его вполне тривиальна и подробно расписана тут. Выбираете ОС, жмакаете и дальше действуйте по инструкции. Попробуем для начала запустить контейнер с mysql. Чтобы получить образ контейнера можно воспользоваться 2 путями: скачать его из репозитория явно, командой docker pull <image_name>' либо запустить контейнер ...">
+	<meta property="og:image" content="http://qa7.ru/theme/images/avatar512.png">
+	<meta property="og:type" content="article">
+	<meta property="og:url" content="http://qa7.ru/2014/11/docker-bystryi-start/">
+
+	<!-- Stylesheets and Web Fonts -->
+	<link href="/theme/style.min.css" rel="stylesheet">
+	<link href="//fonts.googleapis.com/css?family=Raleway:400,600|Source+Code+Pro" rel="stylesheet" type="text/css">
+	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
+	<!-- Favicons -->
+	<link rel="apple-touch-icon" href="/theme/images/apple-touch-icon.png">
+	<link rel="apple-touch-icon" sizes="57x57" href="/theme/images/apple-touch-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="/theme/images/apple-touch-icon-60x60.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="/theme/images/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="/theme/images/apple-touch-icon-76x76.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="/theme/images/apple-touch-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="/theme/images/apple-touch-icon-120x120.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="/theme/images/apple-touch-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="/theme/images/apple-touch-icon-152x152.png">
+
+	<link rel="icon" type="image/png" href="/theme/images/favicon-16x16.png" sizes="16x16">
+	<link rel="icon" type="image/png" href="/theme/images/favicon-32x32.png" sizes="32x32">
+	<link rel="icon" type="image/png" href="/theme/images/favicon-96x96.png" sizes="96x96">
+	<link rel="icon" type="image/png" href="/theme/images/favicon-160x160.png" sizes="160x160">
+	<link rel="icon" type="image/png" href="/theme/images/favicon-196x196.png" sizes="196x196">
+
+	<meta name="application-name" content="qa7.ru">
+	<meta name="msapplication-TileColor" content="#da532c">
+	<meta name="msapplication-TileImage" content="theme/images/mstile-144x144.png">
+	<meta name="msapplication-square70x70logo" content="theme/images/mstile-small.png">
+	<meta name="msapplication-square150x150logo" content="theme/images/mstile-medium.png">
+	<meta name="msapplication-wide310x150logo" content="theme/images/mstile-wide.png">
+	<meta name="msapplication-square310x310logo" content="theme/images/mstile-large.png">
+
+	<!--[if lt IE 9]>
+	<script src="/theme/js/html5shiv.min.js"></script>
+	<script src="/theme/js/respond.min.js"></script>
+	<![endif]-->
+</head>
+
+<body>
+	<div class="container">
+		<aside id="sidebar" class="side-column">
+			<a href="/"><img id="avatar" alt="Site Avatar" src="/theme/images/avatar.png"></a>
+			<div id="logo" class="text-center"><a href="/">qa7.ru</a></div>
+			<div id="bio" class="text-center">Blog about programming, testing and life</div>
+
+			<div id="sidebar-links" class="text-center">
+				<a href="/about/">About</a>&ensp;&bull;&ensp;<a href="/projects/">Projects</a>
+			</div>
+
+			<div id="social" class="text-center">
+				<a href="mailto:biomaks@gmail.com" title="Email" class="icon fa fa-envelope"></a>
+				<a href="http://twitter.com/biomehanik" title="Twitter" class="icon fa fa-twitter"></a>
+				<a href="http://plus.google.com/+ErikKhalimov" title="Google+" class="icon fa fa-google-plus-square"></a>
+				<a href="http://github.com/biomaks" title="GitHub" class="icon fa fa-github"></a>
+				<a href="feeds/all.atom.xml" title="RSS" class="icon fa fa-rss"></a>
+			</div>
+
+			<hr id="sidebar-divider">
+		</aside>
+
+		<article class="main-column">
+	<h1 class="title"><a href="/2014/11/docker-bystryi-start/" title="Permalink to "Docker быстрый старт"">"Docker быстрый старт"</a></h1>
+	<time class="date" datetime="2014-11-08 21:34:19+03:00">November 08, 2014</time>
+	<div class="content">
+		<p>Сегодня я хотел рассказать как пользоваться докером. Установка его вполне тривиальна и подробно расписана <a href="https://docs.docker.com/installation/">тут</a>. Выбираете ОС, жмакаете и дальше действуйте по инструкции.</p>
+<p>Попробуем для начала запустить контейнер с mysql. Чтобы получить образ контейнера  можно воспользоваться 2 путями:
+<!--more--></p>
+<ul>
+<li>скачать его из репозитория явно, командой <code>docker pull &lt;image_name&gt;'</code></li>
+<li>либо запустить контейнер командой <code>docker run […] &lt;image_name&gt; […]</code> в этом случае образ контейнера скачается из репозитория перед запуском</li>
+</ul>
+<p>Из вышесказанного очевидно что образы контейнеров хранятся в общем репозитории. А именно здесь <a href="https://registry.hub.docker.com/">https://registry.hub.docker.com/</a>. В этом хранилище вы можете иметь сколько угодно публичных образов и только один приватный. Хотите больше приватных, платите денюжку. Для нашего примера мы возьмем готовый образ любезно подготовленный разработчиками <code>Docker</code> с названием <code>dockerfile/mysql</code></p>
+<p>Запускаем следующую команду:
+<code>docker run -d --name mysql -p 3306:3306 dockerfile/mysql</code></p>
+<p>в ответ вы получите нечто вроде:
+<code>9452a8c5ac34665262a8f9031399e2d0afefdbbc4282f8ad60ecffbf0860b9a0</code></p>
+<p>это хэш запущенного контейнера. Чуть позже объясню что же такое мы запустили</p>
+<p>запускаем:</p>
+<p><code>docker ps -l</code></p>
+<p>в ответ видим: </p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="codehilite"><pre>CONTAINER ID        IMAGE                     COMMAND             CREATED             STATUS              PORTS                    NAMES
+9452a8c5ac34        dockerfile/mysql:latest   "mysqld_safe"       14 seconds ago      Up 13 seconds       0.0.0.0:3306-&gt;3306/tcp   mysql
+</pre></div>
+</td></tr></table>
+<p>тут все понятно. Команда ps выводит список работающих контейнеров, а флаг <code>-l</code> предписывает вывести информацию только о последнем запущенном контейнере.  В столбце COMMAND это та команда которая выполняется в контейнере по умолчанию. Столбец PORTS показывает на каком порте и хосте  доступен процесс бегущий в контейнере, в нашем случае это процесс <code>mysqld_safe</code> на хосте <code>0.0.0.0</code> порт <code>3306</code></p>
+<blockquote>
+<p>Тут есть нюансы, если вы к примеру воспользовались приложением <code>boot2docker</code> для установки docker на вашу ОС (windows, mac и т.д) то локальным хостом в нашем случае будет не <code>0.0.0.0</code> а тот который выделен для <code>boot2docker</code>. Узнать IP по которому будет доступен наш контейнер можно в этом случае командой <code>boot2docker ip</code>. Соответственно в нашем случае подключиться к mysql можно будет по <code>&lt;boot2docker ip&gt;:3306</code></p>
+</blockquote>
+<p>Теперь разберем команду : <code>docker run -d --name mysql -p 3306:3306 dockerfile/mysql</code>. Команда <code>run</code> запускает контейнер, флаг <code>-d</code>говорит что контейнер должен работать в режиме detached, т.е в бекграунде. Далее флагом <code>—name</code> мы присваиваем имя контейнеру, если мы это не сделаем, это сделает за нас <code>docker</code> (имена он присваивает порой забавные). Далее флаг <code>-p</code>  говорит опубликовать на ip  по умолчанию (0.0.0.0) хоста (там откуда вы запускаете docker) на порту <code>3306</code>  опубликовать то что происходит на порту контейнера <code>3306</code>. Формат для флага <code>-p</code> следующий <code>ip:hostPort:containerPort</code> либо  <code>ip::containerPort</code> либо <code>hostPort:containerPort</code> либо <code>containerPort</code>. Список всех флагов команды <code>run</code> и их краткое описание можно получить запустив <code>docker run --help</code> </p>
+<p>Собственно все, контейнер работает к нему можно подключится, и использовать как базу данных. Чтобы остановить контейнер нужно воспользоваться командой <code>docker stop mysql</code> чтоб удалить контейнер нужно запустить <code>docker rm mysql</code>. Как создать свой образ контейнера залить его в репозиторий и слинковать его с нашим контейнером с базой данных, я расскажу в следующий раз.</p>
+	</div>
+
+	<div id="related-articles">
+		<a href="/2014/12/kak-ustanovit-raznye-java-jdk-v-ubuntu-s-pomoshchiu-apt-get/" id="next-neighbour">&laquo; "Как установить разные Java JDK в Ubuntu с помощью Apt-Get"</a>
+		<a href="/2014/11/docker/" id="prev-neighbour">"Docker?" &raquo;</a>
+	</div>
+
+	<hr>
+
+	<!-- Disqus -->
+	<div id="disqus_thread"></div>
+	<script type="text/javascript">
+		var disqus_shortname = 'biomaks-github-io';
+		(function() {
+			var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+			dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+			(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+		})();
+	</script>
+			<hr>
+		</article>
+
+		<footer class="main-column">
+			<p>Powered by <a href="http://getpelican.com">Pelican</a> and <a href="http://pages.github.com">GitHub&nbsp;Pages</a>.</p>
+		</footer>
+	</div>
+
+	<!-- Google Analytics -->
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-46878829-1', '');
+		ga('send', 'pageview');
+	</script>
+
+</body>
+</html>
