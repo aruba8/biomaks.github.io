@@ -5,7 +5,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://qa7.ru/</loc>
-<lastmod>2015-01-11T15:16:35-00:00</lastmod>
+<lastmod>2015-01-11T15:52:21-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -25,147 +25,147 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-<loc>http://qa7.ru/2015/01/fotki-iz-varshavy/</loc>
+<loc>http://qa7.ru/blog/2015/01/10/fotki-iz-varshavy/</loc>
 <lastmod>2015-01-10T00:00:00+03:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://qa7.ru/2014/12/kak-ustanovit-raznye-java-jdk-v-ubuntu-s-pomoshchiu-apt-get/</loc>
+<loc>http://qa7.ru/blog/2014/12/21/kak-ustanovit-raznye-java-jdk-v-ubuntu-s-pomoshchiu-apt-get/</loc>
 <lastmod>2014-12-21T10:54:45+03:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://qa7.ru/2014/11/docker-bystryi-start/</loc>
+<loc>http://qa7.ru/blog/2014/11/08/docker-bystryi-start/</loc>
 <lastmod>2014-11-08T21:34:19+03:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://qa7.ru/2014/11/docker/</loc>
+<loc>http://qa7.ru/blog/2014/11/04/docker/</loc>
 <lastmod>2014-11-04T10:23:12+03:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://qa7.ru/2014/09/ozhidaniia-v-webdriver/</loc>
+<loc>http://qa7.ru/blog/2014/09/21/ozhidaniia-v-webdriver/</loc>
 <lastmod>2014-09-21T13:49:08+04:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://qa7.ru/2014/07/voprosy-po-java-na-interviu-2/</loc>
+<loc>http://qa7.ru/blog/2014/07/07/voprosy-po-java-na-interviu-2/</loc>
 <lastmod>2014-07-07T14:42:36+02:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://qa7.ru/2014/06/voprosy-po-java-na-interviu/</loc>
+<loc>http://qa7.ru/blog/2014/06/22/voprosy-po-java-na-interviu/</loc>
 <lastmod>2014-06-22T10:28:14+04:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://qa7.ru/2014/05/pro-atributy-boolean/</loc>
+<loc>http://qa7.ru/blog/2014/05/31/pro-atributy-boolean/</loc>
 <lastmod>2014-05-31T08:31:39+04:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://qa7.ru/2014/05/esli-webdriver-klikaet-ne-tuda/</loc>
+<loc>http://qa7.ru/blog/2014/05/25/esli-webdriver-klikaet-ne-tuda/</loc>
 <lastmod>2014-05-25T09:03:39+02:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://qa7.ru/2014/05/edu-v-varshavu/</loc>
+<loc>http://qa7.ru/blog/2014/05/23/edu-v-varshavu/</loc>
 <lastmod>2014-05-23T08:45:04+04:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://qa7.ru/2014/05/metrika-kachestva-po-relizam/</loc>
+<loc>http://qa7.ru/blog/2014/05/18/metrika-kachestva-po-relizam/</loc>
 <lastmod>2014-05-18T10:20:28+04:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://qa7.ru/2014/03/kak-zapustit-brauzer-s-nuzhnym-plaginom-webdriver/</loc>
+<loc>http://qa7.ru/blog/2014/03/09/kak-zapustit-brauzer-s-nuzhnym-plaginom-webdriver/</loc>
 <lastmod>2014-03-09T15:09:03+04:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://qa7.ru/2014/02/kak-ispolzovat-javascript-v-selenium/</loc>
+<loc>http://qa7.ru/blog/2014/02/27/kak-ispolzovat-javascript-v-selenium/</loc>
 <lastmod>2014-02-27T21:05:32+04:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://qa7.ru/2014/02/loveqa-konferentsiia-dlia-testirovshchikov/</loc>
+<loc>http://qa7.ru/blog/2014/02/15/loveqa-konferentsiia-dlia-testirovshchikov/</loc>
 <lastmod>2014-02-15T18:15:48+04:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://qa7.ru/2014/01/nemnogo-pitera/</loc>
+<loc>http://qa7.ru/blog/2014/01/30/nemnogo-pitera/</loc>
 <lastmod>2014-01-30T20:48:52+04:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://qa7.ru/2014/01/opiat-nachal-kovyriat-javascript/</loc>
+<loc>http://qa7.ru/blog/2014/01/18/opiat-nachal-kovyriat-javascript/</loc>
 <lastmod>2014-01-18T12:24:07+04:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://qa7.ru/2014/01/kupil-paru-knig-po-testirovaniiu/</loc>
+<loc>http://qa7.ru/blog/2014/01/12/kupil-paru-knig-po-testirovaniiu/</loc>
 <lastmod>2014-01-12T19:04:14+04:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://qa7.ru/2014/01/parizh-2013-foto/</loc>
+<loc>http://qa7.ru/blog/2014/01/07/parizh-2013-foto/</loc>
 <lastmod>2014-01-07T15:00:01+04:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://qa7.ru/2014/01/malenkie-svetofory/</loc>
+<loc>http://qa7.ru/blog/2014/01/07/malenkie-svetofory/</loc>
 <lastmod>2014-01-07T09:58:36+04:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://qa7.ru/2014/01/sniatie-skrinshotov-s-pomoshchiu-webdriver/</loc>
+<loc>http://qa7.ru/blog/2014/01/06/sniatie-skrinshotov-s-pomoshchiu-webdriver/</loc>
 <lastmod>2014-01-06T18:55:57+04:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://qa7.ru/2014/01/pervyi-post/</loc>
+<loc>http://qa7.ru/blog/2014/01/06/pervyi-post/</loc>
 <lastmod>2014-01-06T15:58:04+04:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
