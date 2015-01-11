@@ -4,19 +4,11 @@ Summary: Эти фотки я сделал за те полтора дня, чт
 Прошу прощения, запоздавшие фотки из Варшавы в мае месяце 2014 года. Надеюсь через некоторое время я расскажу вам, что я там делал. А пока просто фотографии. Красивый город, мне понравился.
 
 
-![Warsaw]({filename}/images/gallery/warsaw/img001.jpg)
-
 
 ![Warsaw]({filename}/images/gallery/warsaw/img002.jpg)
 
 
 ![Warsaw]({filename}/images/gallery/warsaw/img003.jpg)
-
-
-![Warsaw]({filename}/images/gallery/warsaw/img004.jpg)
-
-
-![Warsaw]({filename}/images/gallery/warsaw/img005.jpg)
 
 
 ![Warsaw]({filename}/images/gallery/warsaw/img006.jpg)
@@ -47,9 +39,6 @@ Summary: Эти фотки я сделал за те полтора дня, чт
 
 
 ![Warsaw]({filename}/images/gallery/warsaw/img015.jpg)
-
-
-![Warsaw]({filename}/images/gallery/warsaw/img016.jpg)
 
 
 ![Warsaw]({filename}/images/gallery/warsaw/img017.jpg)
@@ -127,9 +116,6 @@ Summary: Эти фотки я сделал за те полтора дня, чт
 ![Warsaw]({filename}/images/gallery/warsaw/img041.jpg)
 
 
-![Warsaw]({filename}/images/gallery/warsaw/img042.jpg)
-
-
 ![Warsaw]({filename}/images/gallery/warsaw/img043.jpg)
 
 
@@ -149,7 +135,4 @@ Summary: Эти фотки я сделал за те полтора дня, чт
 
 
 ![Warsaw]({filename}/images/gallery/warsaw/img049.jpg)
-
-
-![Warsaw]({filename}/images/gallery/warsaw/img050.jpg)
 
