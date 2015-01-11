@@ -13,6 +13,7 @@ cssutils==1.0
 docutils==0.12
 ecdsa==0.11
 feedgenerator==1.7
+ghp-import==0.4.1
 paramiko==1.15.2
 pelican==3.5.0
 pretty==0.1
@@ -22,5 +23,3 @@ pytz==2014.10
 six==1.9.0
 smartypants==1.8.6
 typogrify==2.0.7
-webassets==0.10.1
-wsgiref==0.1.2
