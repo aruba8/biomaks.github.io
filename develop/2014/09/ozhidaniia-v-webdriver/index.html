@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<!-- Basic Metas -->
+	<meta charset="utf-8">
+	<title>"Ожидания в WebDriver" | qa7.ru</title>
+	<meta name="description" content="Механизм ожидания страниц в WebDriver реализован следующим образом. WebDriver работает с DOM, поэтому он ждет пока document.readyState == complete, это поведение справедливо для следующих действий: driver.get() driver.navigate.refresh() переход на другие страницы посредством взаимодействия с различными элементами страницы существует опция pageLoadTimeout которая позволяет прекратить ожидание и остановить загрузку ...">
+	<meta name="author" content="Erik Khalimov">
+	<link rel="author" href="https://plus.google.com/+ErikKhalimov"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<!-- Twitter Cards and Open Graph -->
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:creator" content="@biomehanik">
+	<meta name="twitter:domain" content="">
+	<meta name="twitter:site" content="@biomehanik">
+	<meta property="og:title" content=""Ожидания в WebDriver"">
+	<meta property="og:description" content="Механизм ожидания страниц в WebDriver реализован следующим образом. WebDriver работает с DOM, поэтому он ждет пока document.readyState == complete, это поведение справедливо для следующих действий: driver.get() driver.navigate.refresh() переход на другие страницы посредством взаимодействия с различными элементами страницы существует опция pageLoadTimeout которая позволяет прекратить ожидание и остановить загрузку ...">
+	<meta property="og:image" content="../../../theme/images/avatar512.png">
+	<meta property="og:type" content="article">
+	<meta property="og:url" content="../../../2014/09/ozhidaniia-v-webdriver/">
+
+	<!-- Stylesheets and Web Fonts -->
+	<link href="/theme/style.min.css" rel="stylesheet">
+	<link href="//fonts.googleapis.com/css?family=Raleway:400,600|Source+Code+Pro" rel="stylesheet" type="text/css">
+	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
+	<!-- Favicons -->
+	<link rel="apple-touch-icon" href="/theme/images/apple-touch-icon.png">
+	<link rel="apple-touch-icon" sizes="57x57" href="/theme/images/apple-touch-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="/theme/images/apple-touch-icon-60x60.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="/theme/images/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="/theme/images/apple-touch-icon-76x76.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="/theme/images/apple-touch-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="/theme/images/apple-touch-icon-120x120.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="/theme/images/apple-touch-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="/theme/images/apple-touch-icon-152x152.png">
+
+	<link rel="icon" type="image/png" href="/theme/images/favicon-16x16.png" sizes="16x16">
+	<link rel="icon" type="image/png" href="/theme/images/favicon-32x32.png" sizes="32x32">
+	<link rel="icon" type="image/png" href="/theme/images/favicon-96x96.png" sizes="96x96">
+	<link rel="icon" type="image/png" href="/theme/images/favicon-160x160.png" sizes="160x160">
+	<link rel="icon" type="image/png" href="/theme/images/favicon-196x196.png" sizes="196x196">
+
+	<meta name="application-name" content="qa7.ru">
+	<meta name="msapplication-TileColor" content="#da532c">
+	<meta name="msapplication-TileImage" content="theme/images/mstile-144x144.png">
+	<meta name="msapplication-square70x70logo" content="theme/images/mstile-small.png">
+	<meta name="msapplication-square150x150logo" content="theme/images/mstile-medium.png">
+	<meta name="msapplication-wide310x150logo" content="theme/images/mstile-wide.png">
+	<meta name="msapplication-square310x310logo" content="theme/images/mstile-large.png">
+
+	<!--[if lt IE 9]>
+	<script src="/theme/js/html5shiv.min.js"></script>
+	<script src="/theme/js/respond.min.js"></script>
+	<![endif]-->
+</head>
+
+<body>
+	<div class="container">
+		<aside id="sidebar" class="side-column">
+			<a href="/"><img id="avatar" alt="Site Avatar" src="/theme/images/avatar.png"></a>
+			<div id="logo" class="text-center"><a href="/">qa7.ru</a></div>
+			<div id="bio" class="text-center">Blog about programming, testing and life</div>
+
+			<div id="sidebar-links" class="text-center">
+				<a href="/about/">About</a>&ensp;&bull;&ensp;<a href="/projects/">Projects</a>
+			</div>
+
+			<div id="social" class="text-center">
+				<a href="mailto:biomaks@gmail.com" title="Email" class="icon fa fa-envelope"></a>
+				<a href="http://twitter.com/biomehanik" title="Twitter" class="icon fa fa-twitter"></a>
+				<a href="http://plus.google.com/+ErikKhalimov" title="Google+" class="icon fa fa-google-plus-square"></a>
+				<a href="http://github.com/biomaks" title="GitHub" class="icon fa fa-github"></a>
+				<a href="feeds/all.atom.xml" title="RSS" class="icon fa fa-rss"></a>
+			</div>
+
+			<hr id="sidebar-divider">
+		</aside>
+
+		<article class="main-column">
+	<h1 class="title"><a href="/2014/09/ozhidaniia-v-webdriver/" title="Permalink to "Ожидания в WebDriver"">"Ожидания в WebDriver"</a></h1>
+	<time class="date" datetime="2014-09-21 13:49:08+04:00">September 21, 2014</time>
+	<div class="content">
+		<hr/>
+<p>Механизм ожидания страниц в WebDriver реализован следующим образом. WebDriver работает с DOM, поэтому он ждет пока <code>document.readyState == complete</code>, это поведение справедливо для следующих действий:</p>
+<ul>
+<li><code>driver.get()</code></li>
+<li><code>driver.navigate.refresh()</code></li>
+<li>переход на другие страницы посредством взаимодействия с различными элементами страницы</li>
+</ul>
+<p>существует опция <code>pageLoadTimeout</code> которая позволяет прекратить ожидание и остановить загрузку страницы, имейте в виду в случае если DOM к этому моменту не прогрузится вы получите <em>TimeoutException</em>
+<!--more--></p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span class="n">driver</span><span class="o">.</span><span class="na">manage</span><span class="o">().</span><span class="na">timeouts</span><span class="o">().</span><span class="na">pageLoadTimeout</span><span class="o">(</span><span class="mi">60</span><span class="o">,</span> <span class="n">TimeUnit</span><span class="o">.</span><span class="na">SECONDS</span><span class="o">);</span>
+</pre></div>
+</td></tr></table>
+<p>помимо этого существуют следующие виды ожиданий: </p>
+<h3>Неявные (Implicit) ожидания</h3>
+<p>Это глобальные ожидания задаются один раз на всю сессию, смысл этого заключается в том что <code>driver.findElement()</code> будет выполнятся до тех пор пока элемент не будет найден, либо пока не пройдет отведенное время ожидание. Задается следующим образом:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span class="n">driver</span><span class="o">.</span><span class="na">manage</span><span class="o">().</span><span class="na">timeouts</span><span class="o">().</span><span class="na">implicitlyWait</span><span class="o">(</span><span class="mi">10</span><span class="o">,</span> <span class="n">TimeUnit</span><span class="o">.</span><span class="na">SECONDS</span><span class="o">);</span>
+</pre></div>
+</td></tr></table>
+<h3>Явные (Explicit) ожидания</h3>
+<p>Когда необходимо подождать что-либо определенное, на помощь приходят явные ожидания. Которые могут реализоваться несколькими способами. Объектом <code>WebDriverWait</code> </p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre> <span class="kd">final</span> <span class="n">Wait</span><span class="o">&lt;</span><span class="n">WebDriver</span><span class="o">&gt;</span> <span class="n">wait</span> <span class="o">=</span> <span class="k">new</span> <span class="n">WebDriverWait</span><span class="o">(</span><span class="n">driver</span><span class="o">,</span> <span class="mi">5</span><span class="o">,</span> <span class="mi">1000</span><span class="o">);</span>
+</pre></div>
+</td></tr></table>
+<p>где второй параметр время ожидания в секундах, а третий время в милисекундах которое нужно ожидать перед очередным вызовом проверки наличия элемента(по дефолту 500). Если необходимо вывести сообщение в случае неуспешного завершения ожидания, то код может быть следующим:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre> <span class="kd">final</span> <span class="n">Wait</span><span class="o">&lt;</span><span class="n">WebDriver</span><span class="o">&gt;</span> <span class="n">wait</span> <span class="o">=</span> <span class="k">new</span> <span class="n">WebDriverWait</span><span class="o">(</span><span class="n">driver</span><span class="o">,</span> <span class="mi">5</span><span class="o">).</span><span class="na">withMessage</span><span class="o">(</span><span class="s">"Element was not found"</span><span class="o">);</span>
+</pre></div>
+</td></tr></table>
+<p>Во время процесса поиска WebDriver регулярно опрашивает браузер на наличие элемента в DOM модели. При этом существует ряд исключительных ситуаций:</p>
+<ul>
+<li>Если элемент доступен в DOM на момент поиска, но спустя время, в момент его вызова, DOM может измениться. Тогда мы получим StaleElementReferenceException.</li>
+<li>Если элемент отсутствует в DOM на момент вызова – получим <code>NoSuchElementException</code>.</li>
+<li>Если элемент был найдем в DOM, но не видим на странице – получим <code>ElementNotVisibleException</code>.</li>
+<li>Если элемент изменил координаты – получим <code>MoveTargetOutOfBoundsException</code>.</li>
+</ul>
+<p>когда подобное случается и нам необходимо эту ситуацию избежать, нужно передать в метод ignoring эти классы исключительных ситуаций:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre> <span class="kd">final</span> <span class="n">Wait</span><span class="o">&lt;</span><span class="n">WebDriver</span><span class="o">&gt;</span> <span class="n">wait</span> <span class="o">=</span> <span class="k">new</span> <span class="n">WebDriverWait</span><span class="o">(</span><span class="n">driver</span><span class="o">,</span> <span class="mi">5</span><span class="o">).</span><span class="na">ignoring</span><span class="o">(</span><span class="n">StaleElementReferenceException</span><span class="o">.</span><span class="na">class</span><span class="o">,</span> <span class="n">ElementNotVisibleException</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+</pre></div>
+</td></tr></table>
+<p>Объект <code>Wait</code> сам по себе ничего не ждет, есму необходимо сообщить нужное состояние которое он ожидает, посредством его метода <code>until</code>. Состояния (conditions) могут быть следующими:</p>
+<ul>
+<li><code>visibilityOfElementLocated(By locator)</code></li>
+<li><code>visibilityOf(WebElement element)</code></li>
+<li><code>textToBePresentInElement(By locator, String text)</code></li>
+<li><code>titleContains(String title)</code></li>
+<li><code>presenceOfElementLocated(By locator)</code></li>
+<li><code>presenceOfAllElementsLocatedBy(By locator)</code></li>
+<li><code>invisibilityOfElementLocated(By locator)</code></li>
+<li><code>invisibilityOfElementWithText(By locator, String text)</code></li>
+<li><code>elementToBeClickable(By locator)</code></li>
+<li><code>stalenessOf(WebElement element)</code></li>
+<li><code>alertIsPresent()</code></li>
+</ul>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span class="n">wait</span><span class="o">.</span><span class="na">until</span><span class="o">(</span><span class="n">ExpectedConditions</span><span class="o">.</span><span class="na">presenceOfElementLocated</span><span class="o">(</span><span class="n">By</span><span class="o">.</span><span class="na">id</span><span class="o">(</span><span class="s">"smth"</span><span class="o">)));</span>
+</pre></div>
+</td></tr></table>
+<p>негативные состояния задаются следующим образом:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span class="n">wait</span><span class="o">.</span><span class="na">until</span><span class="o">(</span><span class="n">ExpectedConditions</span><span class="o">.</span><span class="na">not</span><span class="o">(</span><span class="n">ExpectedConditions</span><span class="o">.</span><span class="na">presenceOfElementLocated</span><span class="o">(</span><span class="n">By</span><span class="o">.</span><span class="na">id</span><span class="o">(</span><span class="s">"smth"</span><span class="o">)));</span>
+</pre></div>
+</td></tr></table>
+<p>Есть возможность создавать свои состояния:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="codehilite"><pre> <span class="n">Function</span> <span class="o">&lt;?</span> <span class="kd">super</span> <span class="n">WebDriver</span><span class="o">,</span> <span class="n">Object</span><span class="o">&gt;</span> <span class="n">isTextPresent</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ExpectedCondition</span><span class="o">&lt;</span><span class="n">Object</span><span class="o">&gt;()</span> <span class="o">{</span>
+  <span class="nd">@Override</span>
+  <span class="kd">public</span> <span class="n">Boolean</span> <span class="nf">apply</span><span class="o">(</span><span class="n">WebDriver</span> <span class="n">webDriver</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">return</span>  <span class="n">webDriver</span><span class="o">.</span><span class="na">findElement</span><span class="o">(</span><span class="n">By</span><span class="o">.</span><span class="na">tagName</span><span class="o">(</span><span class="s">"div"</span><span class="o">)).</span><span class="na">getText</span><span class="o">().</span><span class="na">contains</span><span class="o">(</span><span class="s">"Hello"</span><span class="o">);</span>
+  <span class="o">}</span>
+ <span class="o">};</span>
+</pre></div>
+</td></tr></table>
+<p>так же можно воспользоваться классом Predicate</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="codehilite"><pre><span class="n">Predicate</span><span class="o">&lt;</span><span class="n">WebDriver</span><span class="o">&gt;</span> <span class="n">isTableLoaded</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Predicate</span><span class="o">&lt;</span><span class="n">WebDriver</span><span class="o">&gt;()</span> <span class="o">{</span>
+  <span class="nd">@Override</span>
+  <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">apply</span><span class="o">(</span><span class="n">WebDriver</span> <span class="n">webDriver</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">List</span><span class="o">&lt;</span><span class="n">WebElement</span><span class="o">&gt;</span> <span class="n">rows</span> <span class="o">=</span> <span class="n">webDriver</span><span class="o">.</span><span class="na">findElement</span><span class="o">(</span><span class="n">By</span><span class="o">.</span><span class="na">id</span><span class="o">(</span><span class="s">"table"</span><span class="o">)).</span><span class="na">findElements</span><span class="o">(</span><span class="n">By</span><span class="o">.</span><span class="na">tagName</span><span class="o">(</span><span class="s">"tr"</span><span class="o">));</span>
+    <span class="k">return</span> <span class="n">rows</span><span class="o">.</span><span class="na">size</span><span class="o">()</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="o">;</span>
+  <span class="o">}</span>
+<span class="o">};</span>
+</pre></div>
+</td></tr></table>
+	</div>
+
+	<div id="related-articles">
+		<a href="/2014/11/docker/" id="next-neighbour">&laquo; "Docker?"</a>
+		<a href="/2014/07/voprosy-po-java-na-interviu-2/" id="prev-neighbour">"Вопросы по java на интервью 2" &raquo;</a>
+	</div>
+
+			<hr>
+		</article>
+
+		<footer class="main-column">
+			<p>Powered by <a href="http://getpelican.com">Pelican</a> and <a href="http://pages.github.com">GitHub&nbsp;Pages</a>.</p>
+		</footer>
+	</div>
+
+
+</body>
+</html>
