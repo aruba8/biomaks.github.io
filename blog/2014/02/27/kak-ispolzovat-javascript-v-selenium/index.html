@@ -85,26 +85,29 @@
 		<p>Иногда в следствии сложной верстки некоторые элементы становятся недоступны/ограниченны для взоимодействия с ними посредством тех методов и свойств, что предоставляет нам интерфейс WebElement. Например есть группа элементов <code>li</code> в каком-нить контейнере, часть которых невидима (например имеют стиль <code>display: none</code>), и соответственно selenium ругается при попытке например кликнуть по ним. Чтобы кликнуть необходимо проскроллировать этот элемент в видимую облать экрана. Это можно сделать двумя способами:</p>
 <ul>
 <li>с помощью js метода глобального объекта window - <code>window.scrollTo(x, y)</code>; где x, y координаты необходиого элемента<!--more--></li>
-<li>либо с помощью js метода, который есть у каждого элемента DOM - <code>scrollIntoView()</code></li>
-</ul>
-<p>```java first example
-    public void scrollElementIntoView(WebElement element){
-        JavascriptExecutor javascriptExecutor = (JavascriptExecutor) driver;
-        javascriptExecutor.executeScript("window.scrollTo("+element.getLocation().x+", "+element.getLocation().y+");");
-    }</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4
-5
-6</pre></div></td><td class="code"><div class="codehilite"><pre>```java second example
-public void scrollElementIntoView(WebElement element){
-    JavascriptExecutor javascriptExecutor = (JavascriptExecutor) driver;
-    javascriptExecutor.executeScript("var element = document.getElementById('"+element.getAttribute("id")+"');" +
-        "element.scrollIntoView();");
-}
+<li>либо с помощью js метода, который есть у каждого элемента DOM - <code>scrollIntoView()</code><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="codehilite"><pre><span class="kd">public</span> <span class="kt">void</span> <span class="nf">scrollElementIntoView</span><span class="o">(</span><span class="n">WebElement</span> <span class="n">element</span><span class="o">){</span>
+    <span class="n">JavascriptExecutor</span> <span class="n">javascriptExecutor</span> <span class="o">=</span> <span class="o">(</span><span class="n">JavascriptExecutor</span><span class="o">)</span> <span class="n">driver</span><span class="o">;</span>
+    <span class="n">javascriptExecutor</span><span class="o">.</span><span class="na">executeScript</span><span class="o">(</span><span class="s">"window.scrollTo("</span><span class="o">+</span><span class="n">element</span><span class="o">.</span><span class="na">getLocation</span><span class="o">().</span><span class="na">x</span><span class="o">+</span><span class="s">", </span>
+<span class="s">    "</span><span class="o">+</span><span class="n">element</span><span class="o">.</span><span class="na">getLocation</span><span class="o">().</span><span class="na">y</span><span class="o">+</span><span class="s">");"</span><span class="o">);</span>
+<span class="o">}</span>
+
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">scrollElementIntoView</span><span class="o">(</span><span class="n">WebElement</span> <span class="n">element</span><span class="o">){</span>
+    <span class="n">JavascriptExecutor</span> <span class="n">javascriptExecutor</span> <span class="o">=</span> <span class="o">(</span><span class="n">JavascriptExecutor</span><span class="o">)</span> <span class="n">driver</span><span class="o">;</span>
+    <span class="n">javascriptExecutor</span><span class="o">.</span><span class="na">executeScript</span><span class="o">(</span><span class="s">"var element = document.getElementById('"</span><span class="o">+</span><span class="n">element</span><span class="o">.</span><span class="na">getAttribute</span><span class="o">(</span><span class="s">"id"</span><span class="o">)+</span><span class="s">"');"</span> <span class="o">+</span> <span class="s">"element.scrollIntoView();"</span><span class="o">);</span>
+<span class="o">}</span>
 </pre></div>
 </td></tr></table>
+</li>
+</ul>
 	</div>
 
 	<div id="related-articles">

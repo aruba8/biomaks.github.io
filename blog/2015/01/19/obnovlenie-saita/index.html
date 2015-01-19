@@ -3,8 +3,8 @@
 <head>
 	<!-- Basic Metas -->
 	<meta charset="utf-8">
-	<title>"Как запустить браузер с нужным плагином [WebDriver]" | qa7.ru</title>
-	<meta name="description" content="Продолжаю капитанить :) на самом деле пишу больше для себя чтобы потом быстро найти. Как известно webdriver всегда запускает новый чистый профиль Firefox и прогоняет на нем тесты. Однако иногда не лишнее иметь в этом браузере плагин типа firebug, чтобы быстренько что-либо посмотреть "глазами webdriver" на тестируемой странице. Делается это просто ...">
+	<title>"Обновление сайта" | qa7.ru</title>
+	<meta name="description" content="Как многие заметили, изменился дизайн сайта да и сам движок генерации сайта. Я решил слезть с того, что не очень понимаю, не смотря на то что оно вроде работало и не плохо. Я говорю о движке Octopress который я заменил на питонячий Pelican. Некоторые статьи теперь недоступны по старым ссылкам ...">
 	<meta name="author" content="Erik Khalimov">
 	<link rel="author" href="https://plus.google.com/+ErikKhalimov"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -14,11 +14,11 @@
 	<meta name="twitter:creator" content="@biomehanik">
 	<meta name="twitter:domain" content="">
 	<meta name="twitter:site" content="@biomehanik">
-	<meta property="og:title" content=""Как запустить браузер с нужным плагином [WebDriver]"">
-	<meta property="og:description" content="Продолжаю капитанить :) на самом деле пишу больше для себя чтобы потом быстро найти. Как известно webdriver всегда запускает новый чистый профиль Firefox и прогоняет на нем тесты. Однако иногда не лишнее иметь в этом браузере плагин типа firebug, чтобы быстренько что-либо посмотреть "глазами webdriver" на тестируемой странице. Делается это просто ...">
+	<meta property="og:title" content=""Обновление сайта"">
+	<meta property="og:description" content="Как многие заметили, изменился дизайн сайта да и сам движок генерации сайта. Я решил слезть с того, что не очень понимаю, не смотря на то что оно вроде работало и не плохо. Я говорю о движке Octopress который я заменил на питонячий Pelican. Некоторые статьи теперь недоступны по старым ссылкам ...">
 	<meta property="og:image" content="http://qa7.ru/theme/images/avatar512.png">
 	<meta property="og:type" content="article">
-	<meta property="og:url" content="http://qa7.ru/blog/2014/03/09/kak-zapustit-brauzer-s-nuzhnym-plaginom-webdriver/">
+	<meta property="og:url" content="http://qa7.ru/blog/2015/01/19/obnovlenie-saita/">
 
 	<!-- Stylesheets and Web Fonts -->
 	<link href="/theme/style.min.css" rel="stylesheet">
@@ -79,28 +79,14 @@
 		</aside>
 
 		<article class="main-column">
-	<h1 class="title"><a href="/blog/2014/03/09/kak-zapustit-brauzer-s-nuzhnym-plaginom-webdriver/" title="Permalink to "Как запустить браузер с нужным плагином [WebDriver]"">"Как запустить браузер с нужным плагином [WebDriver]"</a></h1>
-	<time class="date" datetime="2014-03-09 15:09:03+04:00">March 09, 2014</time>
+	<h1 class="title"><a href="/blog/2015/01/19/obnovlenie-saita/" title="Permalink to "Обновление сайта"">"Обновление сайта"</a></h1>
+	<time class="date" datetime="2015-01-19 19:47:45+03:00">January 19, 2015</time>
 	<div class="content">
-		<p>Продолжаю капитанить :) на самом деле пишу больше для себя чтобы потом быстро найти.
-Как известно webdriver всегда запускает новый чистый профиль Firefox и прогоняет на нем тесты. Однако иногда не лишнее иметь в этом браузере плагин типа firebug, чтобы быстренько что-либо посмотреть "глазами webdriver" на тестируемой странице. 
-Делается это просто, необходимо иметь на машине где запускается браузер, плагин с расширением <code>.xpi</code> например <code>firebug-1.12.7-fx.xpi</code>.</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4</pre></div></td><td class="code"><div class="codehilite"><pre><span class="n">FirefoxProfile</span> <span class="n">profile</span> <span class="o">=</span> <span class="k">new</span> <span class="n">FirefoxProfile</span><span class="o">();</span>
-<span class="n">profile</span><span class="o">.</span><span class="na">addExtension</span><span class="o">(</span><span class="k">new</span> <span class="n">File</span><span class="o">(</span><span class="n">pathToExtension</span><span class="o">));</span>
-<span class="n">profile</span><span class="o">.</span><span class="na">setPreference</span><span class="o">(</span><span class="s">"extensions.firebug.currentVersion"</span><span class="o">,</span> <span class="s">"X.X.X"</span><span class="o">);</span>
-<span class="n">WebDriver</span> <span class="n">driver</span> <span class="o">=</span> <span class="k">new</span> <span class="n">FirefoxDriver</span><span class="o">(</span><span class="n">profile</span><span class="o">);</span>
-</pre></div>
-</td></tr></table>
-<p>где <code>pathToExtension</code> - путь к расширению с расширением <code>.xpi</code>
-в строке <code>profile.setPreference("extensions.firebug.currentVersion", "X.X.X");</code> вместо <code>X.X.X</code> нужно написать версию плагина больше чем тот который мы устанавливаем, например: <code>profile.setPreference("extensions.firebug.currentVersion", "1.12.8");</code>. Это нужно для того чтобы браузер не открывал страницу с описанием плагина.</p>
+		<p>Как многие заметили, изменился дизайн сайта да и сам движок генерации сайта. Я решил слезть с того, что не очень понимаю, не смотря на то что оно вроде работало и не плохо. Я говорю о движке Octopress который я заменил на питонячий Pelican. Некоторые статьи теперь недоступны по старым ссылкам, так как Pelican генерирует их по своему. Но в целом остается все как есть. Прошу прощения за неудобства, в ближайшем будущем переездов на другие движки не планируется.</p>
 	</div>
 
 	<div id="related-articles">
-		<a href="/blog/2014/05/18/metrika-kachestva-po-relizam/" id="next-neighbour">&laquo; "Метрика качества по релизам"</a>
-		<a href="/blog/2014/02/27/kak-ispolzovat-javascript-v-selenium/" id="prev-neighbour">"Как использовать javaScript в selenium" &raquo;</a>
+		<a href="/blog/2015/01/10/fotki-iz-varshavy/" id="prev-neighbour">Фотки из Варшавы &raquo;</a>
 	</div>
 
 	<hr>

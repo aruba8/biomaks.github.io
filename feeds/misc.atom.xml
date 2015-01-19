@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>qa7.ru</title><link href="http://qa7.ru/" rel="alternate"></link><link href="http://qa7.ru/feeds/misc.atom.xml" rel="self"></link><id>http://qa7.ru/</id><updated>2015-01-10T00:00:00+03:00</updated><entry><title>Фотки из Варшавы</title><link href="http://qa7.ru/blog/2015/01/10/fotki-iz-varshavy/" rel="alternate"></link><updated>2015-01-10T00:00:00+03:00</updated><author><name>Erik</name></author><id>tag:qa7.ru,2015-01-10:blog/2015/01/10/fotki-iz-varshavy/</id><summary type="html">&lt;p&gt;Прошу прощения, запоздавшие фотки из Варшавы в мае месяце 2014 года. Надеюсь через некоторое время я расскажу вам, что я там делал. А пока просто фотографии. Красивый город, мне понравился.&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>qa7.ru</title><link href="http://qa7.ru/" rel="alternate"></link><link href="http://qa7.ru/feeds/misc.atom.xml" rel="self"></link><id>http://qa7.ru/</id><updated>2015-01-19T19:47:45+03:00</updated><entry><title>"Обновление сайта"</title><link href="http://qa7.ru/blog/2015/01/19/obnovlenie-saita/" rel="alternate"></link><updated>2015-01-19T19:47:45+03:00</updated><author><name>Erik</name></author><id>tag:qa7.ru,2015-01-19:blog/2015/01/19/obnovlenie-saita/</id><summary type="html">&lt;p&gt;Как многие заметили, изменился дизайн сайта да и сам движок генерации сайта. Я решил слезть с того, что не очень понимаю, не смотря на то что оно вроде работало и не плохо. Я говорю о движке Octopress который я заменил на питонячий Pelican. Некоторые статьи теперь недоступны по старым ссылкам, так как Pelican генерирует их по своему. Но в целом остается все как есть. Прошу прощения за неудобства, в ближайшем будущем переездов на другие движки не планируется.&lt;/p&gt;</summary></entry><entry><title>Фотки из Варшавы</title><link href="http://qa7.ru/blog/2015/01/10/fotki-iz-varshavy/" rel="alternate"></link><updated>2015-01-10T00:00:00+03:00</updated><author><name>Erik</name></author><id>tag:qa7.ru,2015-01-10:blog/2015/01/10/fotki-iz-varshavy/</id><summary type="html">&lt;p&gt;Прошу прощения, запоздавшие фотки из Варшавы в мае месяце 2014 года. Надеюсь через некоторое время я расскажу вам, что я там делал. А пока просто фотографии. Красивый город, мне понравился.&lt;/p&gt;
 &lt;p&gt;&lt;img alt="Warsaw" src="http://qa7.ru/images/gallery/warsaw/img002.jpg" style="width: 640px; height: auto; max-width: 100%;"/&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img alt="Warsaw" src="http://qa7.ru/images/gallery/warsaw/img003.jpg" style="width: 480px; height: auto; max-width: 100%;"/&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img alt="Warsaw" src="http://qa7.ru/images/gallery/warsaw/img006.jpg" style="width: 480px; height: auto; max-width: 100%;"/&gt;&lt;/p&gt;
@@ -788,36 +788,42 @@ Press enter to keep the current choice[*], or type selection number:
 &lt;p&gt;Формула мягко говоря очень общая, но пока ничего лучшего придумано не было&lt;/p&gt;</summary></entry><entry><title>"Как запустить браузер с нужным плагином [WebDriver]"</title><link href="http://qa7.ru/blog/2014/03/09/kak-zapustit-brauzer-s-nuzhnym-plaginom-webdriver/" rel="alternate"></link><updated>2014-03-09T15:09:03+04:00</updated><author><name>Erik</name></author><id>tag:qa7.ru,2014-03-09:blog/2014/03/09/kak-zapustit-brauzer-s-nuzhnym-plaginom-webdriver/</id><summary type="html">&lt;p&gt;Продолжаю капитанить :) на самом деле пишу больше для себя чтобы потом быстро найти.
 Как известно webdriver всегда запускает новый чистый профиль Firefox и прогоняет на нем тесты. Однако иногда не лишнее иметь в этом браузере плагин типа firebug, чтобы быстренько что-либо посмотреть "глазами webdriver" на тестируемой странице. 
 Делается это просто, необходимо иметь на машине где запускается браузер, плагин с расширением &lt;code&gt;.xpi&lt;/code&gt; например &lt;code&gt;firebug-1.12.7-fx.xpi&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;java WebdriverConfig.java
-FirefoxProfile profile = new FirefoxProfile();
-profile.addExtension(new File(pathToExtension));
-profile.setPreference("extensions.firebug.currentVersion", "X.X.X");
-WebDriver driver = new FirefoxDriver(profile);&lt;/code&gt;
-&lt;!--more--&gt;&lt;/p&gt;
+&lt;table class="codehilitetable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
+2
+3
+4&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;FirefoxProfile&lt;/span&gt; &lt;span class="n"&gt;profile&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="n"&gt;FirefoxProfile&lt;/span&gt;&lt;span class="o"&gt;();&lt;/span&gt;
+&lt;span class="n"&gt;profile&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;addExtension&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="n"&gt;File&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;pathToExtension&lt;/span&gt;&lt;span class="o"&gt;));&lt;/span&gt;
+&lt;span class="n"&gt;profile&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;setPreference&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s"&gt;"extensions.firebug.currentVersion"&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="s"&gt;"X.X.X"&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
+&lt;span class="n"&gt;WebDriver&lt;/span&gt; &lt;span class="n"&gt;driver&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="n"&gt;FirefoxDriver&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;profile&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;p&gt;где &lt;code&gt;pathToExtension&lt;/code&gt; - путь к расширению с расширением &lt;code&gt;.xpi&lt;/code&gt;
 в строке &lt;code&gt;profile.setPreference("extensions.firebug.currentVersion", "X.X.X");&lt;/code&gt; вместо &lt;code&gt;X.X.X&lt;/code&gt; нужно написать версию плагина больше чем тот который мы устанавливаем, например: &lt;code&gt;profile.setPreference("extensions.firebug.currentVersion", "1.12.8");&lt;/code&gt;. Это нужно для того чтобы браузер не открывал страницу с описанием плагина.&lt;/p&gt;</summary></entry><entry><title>"Как использовать javaScript в selenium"</title><link href="http://qa7.ru/blog/2014/02/27/kak-ispolzovat-javascript-v-selenium/" rel="alternate"></link><updated>2014-02-27T21:05:32+04:00</updated><author><name>Erik</name></author><id>tag:qa7.ru,2014-02-27:blog/2014/02/27/kak-ispolzovat-javascript-v-selenium/</id><summary type="html">&lt;p&gt;Иногда в следствии сложной верстки некоторые элементы становятся недоступны/ограниченны для взоимодействия с ними посредством тех методов и свойств, что предоставляет нам интерфейс WebElement. Например есть группа элементов &lt;code&gt;li&lt;/code&gt; в каком-нить контейнере, часть которых невидима (например имеют стиль &lt;code&gt;display: none&lt;/code&gt;), и соответственно selenium ругается при попытке например кликнуть по ним. Чтобы кликнуть необходимо проскроллировать этот элемент в видимую облать экрана. Это можно сделать двумя способами:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;с помощью js метода глобального объекта window - &lt;code&gt;window.scrollTo(x, y)&lt;/code&gt;; где x, y координаты необходиого элемента&lt;!--more--&gt;&lt;/li&gt;
-&lt;li&gt;либо с помощью js метода, который есть у каждого элемента DOM - &lt;code&gt;scrollIntoView()&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;```java first example
-    public void scrollElementIntoView(WebElement element){
-        JavascriptExecutor javascriptExecutor = (JavascriptExecutor) driver;
-        javascriptExecutor.executeScript("window.scrollTo("+element.getLocation().x+", "+element.getLocation().y+");");
-    }&lt;/p&gt;
-&lt;table class="codehilitetable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
-2
-3
-4
-5
-6&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="codehilite"&gt;&lt;pre&gt;```java second example
-public void scrollElementIntoView(WebElement element){
-    JavascriptExecutor javascriptExecutor = (JavascriptExecutor) driver;
-    javascriptExecutor.executeScript("var element = document.getElementById('"+element.getAttribute("id")+"');" +
-        "element.scrollIntoView();");
-}
+&lt;li&gt;либо с помощью js метода, который есть у каждого элемента DOM - &lt;code&gt;scrollIntoView()&lt;/code&gt;&lt;table class="codehilitetable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt; 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="kt"&gt;void&lt;/span&gt; &lt;span class="nf"&gt;scrollElementIntoView&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;WebElement&lt;/span&gt; &lt;span class="n"&gt;element&lt;/span&gt;&lt;span class="o"&gt;){&lt;/span&gt;
+    &lt;span class="n"&gt;JavascriptExecutor&lt;/span&gt; &lt;span class="n"&gt;javascriptExecutor&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;JavascriptExecutor&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="n"&gt;driver&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+    &lt;span class="n"&gt;javascriptExecutor&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;executeScript&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s"&gt;"window.scrollTo("&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="n"&gt;element&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;getLocation&lt;/span&gt;&lt;span class="o"&gt;().&lt;/span&gt;&lt;span class="na"&gt;x&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="s"&gt;", &lt;/span&gt;
+&lt;span class="s"&gt;    "&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="n"&gt;element&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;getLocation&lt;/span&gt;&lt;span class="o"&gt;().&lt;/span&gt;&lt;span class="na"&gt;y&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="s"&gt;");"&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
+&lt;span class="o"&gt;}&lt;/span&gt;
+
+&lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="kt"&gt;void&lt;/span&gt; &lt;span class="nf"&gt;scrollElementIntoView&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;WebElement&lt;/span&gt; &lt;span class="n"&gt;element&lt;/span&gt;&lt;span class="o"&gt;){&lt;/span&gt;
+    &lt;span class="n"&gt;JavascriptExecutor&lt;/span&gt; &lt;span class="n"&gt;javascriptExecutor&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;JavascriptExecutor&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="n"&gt;driver&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+    &lt;span class="n"&gt;javascriptExecutor&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;executeScript&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s"&gt;"var element = document.getElementById('"&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="n"&gt;element&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;getAttribute&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s"&gt;"id"&lt;/span&gt;&lt;span class="o"&gt;)+&lt;/span&gt;&lt;span class="s"&gt;"');"&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="s"&gt;"element.scrollIntoView();"&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
+&lt;span class="o"&gt;}&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
-&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;</summary></entry><entry><title>"#loveQA Конференция для тестировщиков"</title><link href="http://qa7.ru/blog/2014/02/15/loveqa-konferentsiia-dlia-testirovshchikov/" rel="alternate"></link><updated>2014-02-15T18:15:48+04:00</updated><author><name>Erik</name></author><id>tag:qa7.ru,2014-02-15:blog/2014/02/15/loveqa-konferentsiia-dlia-testirovshchikov/</id><summary type="html">&lt;p&gt;Сегодня посетил конференцию для тестировщиков которую организовала компания &lt;a href="http://corp.badoo.com/ru/"&gt;Badoo&lt;/a&gt;. Отличное получилось мероприятие, познакомился с новыми людьми. Устроил настоящий допрос докладчикам по мобильной тематике. Был доклад от единственного!! тестировщика API компании Qiwi, на нем я особо оторвался. Организаторы большие молодцы, устроили вебтрансляцию мероприятия, организовали вкусный обед, а после устроили пивную вечеринку с настоящим немецким пивом! Так же в программе была экскурсия по офису. Вобщем было круто, давно не было таких мероприятий.
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/li&gt;
+&lt;/ul&gt;</summary></entry><entry><title>"#loveQA Конференция для тестировщиков"</title><link href="http://qa7.ru/blog/2014/02/15/loveqa-konferentsiia-dlia-testirovshchikov/" rel="alternate"></link><updated>2014-02-15T18:15:48+04:00</updated><author><name>Erik</name></author><id>tag:qa7.ru,2014-02-15:blog/2014/02/15/loveqa-konferentsiia-dlia-testirovshchikov/</id><summary type="html">&lt;p&gt;Сегодня посетил конференцию для тестировщиков которую организовала компания &lt;a href="http://corp.badoo.com/ru/"&gt;Badoo&lt;/a&gt;. Отличное получилось мероприятие, познакомился с новыми людьми. Устроил настоящий допрос докладчикам по мобильной тематике. Был доклад от единственного!! тестировщика API компании Qiwi, на нем я особо оторвался. Организаторы большие молодцы, устроили вебтрансляцию мероприятия, организовали вкусный обед, а после устроили пивную вечеринку с настоящим немецким пивом! Так же в программе была экскурсия по офису. Вобщем было круто, давно не было таких мероприятий.
 &lt;!--more--&gt;
 Доклады были следующие: &lt;/p&gt;
 &lt;ul&gt;
@@ -1069,21 +1075,7 @@ public void scrollElementIntoView(WebElement element){
 &lt;p&gt;&lt;img alt="Paris" src="http://qa7.ru/images/gallery/paris2013/img152.jpg" style="width: 640px; height: auto; max-width: 100%;"/&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img alt="Paris" src="http://qa7.ru/images/gallery/paris2013/img153.jpg" style="width: 480px; height: auto; max-width: 100%;"/&gt;&lt;/p&gt;</summary></entry><entry><title>"Маленькие светофоры"</title><link href="http://qa7.ru/blog/2014/01/07/malenkie-svetofory/" rel="alternate"></link><updated>2014-01-07T09:58:36+04:00</updated><author><name>Erik</name></author><id>tag:qa7.ru,2014-01-07:blog/2014/01/07/malenkie-svetofory/</id><summary type="html">&lt;p&gt;В Париже везде стоят такие мальнькие светофоры. Так как они полностью повторяют сигналы большого, я так понял они стоят для удобства водителей, т.к. перед стоп линией большой светофор почти всегда не видно.
 &lt;!--more--&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href="http://farm3.staticflickr.com/2841/11128473066_0d4c51b944_z.jpg"&gt;Foto&lt;/a&gt;&lt;/p&gt;</summary></entry><entry><title>"Снятие скриншотов с помощью WebDriver"</title><link href="http://qa7.ru/blog/2014/01/06/sniatie-skrinshotov-s-pomoshchiu-webdriver/" rel="alternate"></link><updated>2014-01-06T18:55:57+04:00</updated><author><name>Erik</name></author><id>tag:qa7.ru,2014-01-06:blog/2014/01/06/sniatie-skrinshotov-s-pomoshchiu-webdriver/</id><summary type="html">&lt;p&gt;Снятие скриншотов достаточно простая задача. В селениуме есть интерфейс TakesScreenshot который предоставляет возможность делать скриншоты веб-странницы. 
-&lt;!--more--&gt;&lt;/p&gt;
-&lt;p&gt;```java ScreenshotTests.java https://gist.github.com/biomaks/8284296 Gist&lt;/p&gt;
-&lt;p&gt;import java.io.File;
-import org.apache.commons.io.FileUtils;&lt;/p&gt;
-&lt;p&gt;import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.By;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
-import org.openqa.selenium.WebElement;&lt;/p&gt;
-&lt;p&gt;import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;&lt;/p&gt;
-&lt;p&gt;public class ScreenshotTests {&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://farm3.staticflickr.com/2841/11128473066_0d4c51b944_z.jpg"&gt;Foto&lt;/a&gt;&lt;/p&gt;</summary></entry><entry><title>"Снятие скриншотов с помощью WebDriver"</title><link href="http://qa7.ru/blog/2014/01/06/sniatie-skrinshotov-s-pomoshchiu-webdriver/" rel="alternate"></link><updated>2014-01-06T18:55:57+04:00</updated><author><name>Erik</name></author><id>tag:qa7.ru,2014-01-06:blog/2014/01/06/sniatie-skrinshotov-s-pomoshchiu-webdriver/</id><summary type="html">&lt;p&gt;Снятие скриншотов достаточно простая задача. В селениуме есть интерфейс TakesScreenshot который предоставляет возможность делать скриншоты веб-странницы. &lt;/p&gt;
 &lt;table class="codehilitetable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt; 1
  2
  3
@@ -1110,34 +1102,68 @@ import org.junit.Test;&lt;/p&gt;
 24
 25
 26
-27&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="nt"&gt;WebDriver&lt;/span&gt; &lt;span class="nt"&gt;driver&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;java.io.File&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;org.apache.commons.io.FileUtils&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
 
-&lt;span class="k"&gt;@Before&lt;/span&gt;
-&lt;span class="nt"&gt;public&lt;/span&gt; &lt;span class="nt"&gt;void&lt;/span&gt; &lt;span class="nt"&gt;setUp&lt;/span&gt;&lt;span class="o"&gt;()&lt;/span&gt;
-&lt;span class="p"&gt;{&lt;/span&gt;
-    &lt;span class="nt"&gt;driver&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nt"&gt;new&lt;/span&gt; &lt;span class="nt"&gt;FirefoxDriver&lt;/span&gt;&lt;span class="o"&gt;();&lt;/span&gt;
-    &lt;span class="nt"&gt;driver&lt;/span&gt;&lt;span class="nc"&gt;.get&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"http://www.google.com"&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
-&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;org.openqa.selenium.WebDriver&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;org.openqa.selenium.firefox.FirefoxDriver&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;org.openqa.selenium.By&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;org.openqa.selenium.OutputType&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;org.openqa.selenium.TakesScreenshot&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;org.openqa.selenium.WebElement&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
 
-&lt;span class="k"&gt;@Test&lt;/span&gt;
-&lt;span class="nt"&gt;public&lt;/span&gt; &lt;span class="nt"&gt;void&lt;/span&gt; &lt;span class="nt"&gt;testTakesScreenshot&lt;/span&gt;&lt;span class="o"&gt;()&lt;/span&gt;
-&lt;span class="p"&gt;{&lt;/span&gt;
-    &lt;span class="nt"&gt;try&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-        &lt;span class="n"&gt;File&lt;/span&gt; &lt;span class="n"&gt;scrFile&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;((&lt;/span&gt;&lt;span class="n"&gt;TakesScreenshot&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="n"&gt;driver&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;getScreenshotAs&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;OutputType&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;FILE&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-        &lt;span class="n"&gt;FileUtils&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;copyFile&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;scrFile&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="n"&gt;new&lt;/span&gt; &lt;span class="n"&gt;File&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"c:\\scr\\main_page.png"&lt;/span&gt;&lt;span class="p"&gt;));&lt;/span&gt;
-    &lt;span class="p"&gt;}&lt;/span&gt; &lt;span class="nt"&gt;catch&lt;/span&gt; &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="nt"&gt;Exception&lt;/span&gt; &lt;span class="nt"&gt;e&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-        &lt;span class="n"&gt;e&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;printStackTrace&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
-    &lt;span class="p"&gt;}&lt;/span&gt;
-&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;org.junit.After&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;org.junit.Before&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;org.junit.Test&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+
+&lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="kd"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;ScreenshotTests&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
+
+    &lt;span class="n"&gt;WebDriver&lt;/span&gt; &lt;span class="n"&gt;driver&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+
+    &lt;span class="nd"&gt;@Before&lt;/span&gt;
+    &lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="kt"&gt;void&lt;/span&gt; &lt;span class="nf"&gt;setUp&lt;/span&gt;&lt;span class="o"&gt;()&lt;/span&gt;
+    &lt;span class="o"&gt;{&lt;/span&gt;
+        &lt;span class="n"&gt;driver&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="n"&gt;FirefoxDriver&lt;/span&gt;&lt;span class="o"&gt;();&lt;/span&gt;
+        &lt;span class="n"&gt;driver&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;get&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s"&gt;"http://www.google.com"&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
+    &lt;span class="o"&gt;}&lt;/span&gt;
+
+    &lt;span class="nd"&gt;@Test&lt;/span&gt;
+    &lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="kt"&gt;void&lt;/span&gt; &lt;span class="nf"&gt;testTakesScreenshot&lt;/span&gt;&lt;span class="o"&gt;()&lt;/span&gt;
+    &lt;span class="o"&gt;{&lt;/span&gt;
+        &lt;span class="k"&gt;try&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
+            &lt;span class="n"&gt;File&lt;/span&gt; &lt;span class="n"&gt;scrFile&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="o"&gt;((&lt;/span&gt;&lt;span class="n"&gt;TakesScreenshot&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;&lt;span class="n"&gt;driver&lt;/span&gt;&lt;span class="o"&gt;).&lt;/span&gt;&lt;span class="na"&gt;getScreenshotAs&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;OutputType&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;FILE&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
+            &lt;span class="n"&gt;FileUtils&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;copyFile&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;scrFile&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="n"&gt;File&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s"&gt;"c:\\scr\\main_page.png"&lt;/span&gt;&lt;span class="o"&gt;));&lt;/span&gt;
+        &lt;span class="o"&gt;}&lt;/span&gt; &lt;span class="k"&gt;catch&lt;/span&gt; &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Exception&lt;/span&gt; &lt;span class="n"&gt;e&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
+            &lt;span class="n"&gt;e&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;printStackTrace&lt;/span&gt;&lt;span class="o"&gt;();&lt;/span&gt;
+        &lt;span class="o"&gt;}&lt;/span&gt;
+    &lt;span class="o"&gt;}&lt;/span&gt;
 
 
-&lt;span class="k"&gt;@After&lt;/span&gt;
-&lt;span class="nt"&gt;public&lt;/span&gt; &lt;span class="nt"&gt;void&lt;/span&gt; &lt;span class="nt"&gt;teadDown&lt;/span&gt;&lt;span class="o"&gt;()&lt;/span&gt;
-&lt;span class="p"&gt;{&lt;/span&gt;
-    &lt;span class="nt"&gt;driver&lt;/span&gt;&lt;span class="nc"&gt;.close&lt;/span&gt;&lt;span class="o"&gt;();&lt;/span&gt;
-    &lt;span class="nt"&gt;driver&lt;/span&gt;&lt;span class="nc"&gt;.quit&lt;/span&gt;&lt;span class="o"&gt;();&lt;/span&gt;
-&lt;span class="p"&gt;}&lt;/span&gt;
+    &lt;span class="nd"&gt;@After&lt;/span&gt;
+    &lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="kt"&gt;void&lt;/span&gt; &lt;span class="nf"&gt;teadDown&lt;/span&gt;&lt;span class="o"&gt;()&lt;/span&gt;
+    &lt;span class="o"&gt;{&lt;/span&gt;
+        &lt;span class="n"&gt;driver&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;close&lt;/span&gt;&lt;span class="o"&gt;();&lt;/span&gt;
+        &lt;span class="n"&gt;driver&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;quit&lt;/span&gt;&lt;span class="o"&gt;();&lt;/span&gt;
+    &lt;span class="o"&gt;}&lt;/span&gt;
+
+&lt;span class="o"&gt;}&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
-&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;p&gt;}&lt;/p&gt;
-&lt;p&gt;```&lt;/p&gt;</summary></entry><entry><title>"Первый пост"</title><link href="http://qa7.ru/blog/2014/01/06/pervyi-post/" rel="alternate"></link><updated>2014-01-06T15:58:04+04:00</updated><author><name>Erik</name></author><id>tag:qa7.ru,2014-01-06:blog/2014/01/06/pervyi-post/</id><summary type="html">&lt;p&gt;Всем привет! Это мой первый пост на этом блоге. Буду писать(надеюсь что не брошу) о всем, что мне интересно, о тестировании, об IT, о жизни )) &lt;/p&gt;</summary></entry></feed>
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;</summary></entry><entry><title>"Первый пост"</title><link href="http://qa7.ru/blog/2014/01/06/pervyi-post/" rel="alternate"></link><updated>2014-01-06T15:58:04+04:00</updated><author><name>Erik</name></author><id>tag:qa7.ru,2014-01-06:blog/2014/01/06/pervyi-post/</id><summary type="html">&lt;p&gt;Всем привет! Это мой первый пост на этом блоге. Буду писать(надеюсь что не брошу) о всем, что мне интересно, о тестировании, об IT, о жизни )) &lt;/p&gt;</summary></entry></feed>

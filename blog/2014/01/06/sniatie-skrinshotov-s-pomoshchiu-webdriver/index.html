@@ -4,7 +4,7 @@
 	<!-- Basic Metas -->
 	<meta charset="utf-8">
 	<title>"Снятие скриншотов с помощью WebDriver" | qa7.ru</title>
-	<meta name="description" content="Снятие скриншотов достаточно простая задача. В селениуме есть интерфейс TakesScreenshot который предоставляет возможность делать скриншоты веб-странницы. ```java ScreenshotTests.java https://gist.github.com/biomaks/8284296 Gist import java.io.File; import org.apache.commons.io.FileUtils; import org.openqa.selenium.WebDriver; import org.openqa.selenium.firefox.FirefoxDriver; import org.openqa ...">
+	<meta name="description" content="Снятие скриншотов достаточно простая задача. В селениуме есть интерфейс TakesScreenshot который предоставляет возможность делать скриншоты веб-странницы. 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 ...">
 	<meta name="author" content="Erik Khalimov">
 	<link rel="author" href="https://plus.google.com/+ErikKhalimov"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -15,7 +15,7 @@
 	<meta name="twitter:domain" content="">
 	<meta name="twitter:site" content="@biomehanik">
 	<meta property="og:title" content=""Снятие скриншотов с помощью WebDriver"">
-	<meta property="og:description" content="Снятие скриншотов достаточно простая задача. В селениуме есть интерфейс TakesScreenshot который предоставляет возможность делать скриншоты веб-странницы. ```java ScreenshotTests.java https://gist.github.com/biomaks/8284296 Gist import java.io.File; import org.apache.commons.io.FileUtils; import org.openqa.selenium.WebDriver; import org.openqa.selenium.firefox.FirefoxDriver; import org.openqa ...">
+	<meta property="og:description" content="Снятие скриншотов достаточно простая задача. В селениуме есть интерфейс TakesScreenshot который предоставляет возможность делать скриншоты веб-странницы. 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 ...">
 	<meta property="og:image" content="http://qa7.ru/theme/images/avatar512.png">
 	<meta property="og:type" content="article">
 	<meta property="og:url" content="http://qa7.ru/blog/2014/01/06/sniatie-skrinshotov-s-pomoshchiu-webdriver/">
@@ -82,21 +82,7 @@
 	<h1 class="title"><a href="/blog/2014/01/06/sniatie-skrinshotov-s-pomoshchiu-webdriver/" title="Permalink to "Снятие скриншотов с помощью WebDriver"">"Снятие скриншотов с помощью WebDriver"</a></h1>
 	<time class="date" datetime="2014-01-06 18:55:57+04:00">January 06, 2014</time>
 	<div class="content">
-		<p>Снятие скриншотов достаточно простая задача. В селениуме есть интерфейс TakesScreenshot который предоставляет возможность делать скриншоты веб-странницы. 
-<!--more--></p>
-<p>```java ScreenshotTests.java https://gist.github.com/biomaks/8284296 Gist</p>
-<p>import java.io.File;
-import org.apache.commons.io.FileUtils;</p>
-<p>import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.By;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
-import org.openqa.selenium.WebElement;</p>
-<p>import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;</p>
-<p>public class ScreenshotTests {</p>
+		<p>Снятие скриншотов достаточно простая задача. В селениуме есть интерфейс TakesScreenshot который предоставляет возможность делать скриншоты веб-странницы. </p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -123,37 +109,71 @@ import org.junit.Test;</p>
 24
 25
 26
-27</pre></div></td><td class="code"><div class="codehilite"><pre><span class="nt">WebDriver</span> <span class="nt">driver</span><span class="o">;</span>
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45</pre></div></td><td class="code"><div class="codehilite"><pre><span class="kn">import</span> <span class="nn">java.io.File</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.commons.io.FileUtils</span><span class="o">;</span>
 
-<span class="k">@Before</span>
-<span class="nt">public</span> <span class="nt">void</span> <span class="nt">setUp</span><span class="o">()</span>
-<span class="p">{</span>
-    <span class="nt">driver</span> <span class="o">=</span> <span class="nt">new</span> <span class="nt">FirefoxDriver</span><span class="o">();</span>
-    <span class="nt">driver</span><span class="nc">.get</span><span class="o">(</span><span class="s2">"http://www.google.com"</span><span class="o">);</span>
-<span class="p">}</span>
+<span class="kn">import</span> <span class="nn">org.openqa.selenium.WebDriver</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.openqa.selenium.firefox.FirefoxDriver</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.openqa.selenium.By</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.openqa.selenium.OutputType</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.openqa.selenium.TakesScreenshot</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.openqa.selenium.WebElement</span><span class="o">;</span>
 
-<span class="k">@Test</span>
-<span class="nt">public</span> <span class="nt">void</span> <span class="nt">testTakesScreenshot</span><span class="o">()</span>
-<span class="p">{</span>
-    <span class="nt">try</span> <span class="p">{</span>
-        <span class="n">File</span> <span class="n">scrFile</span> <span class="o">=</span> <span class="p">((</span><span class="n">TakesScreenshot</span><span class="p">)</span><span class="n">driver</span><span class="p">)</span><span class="o">.</span><span class="n">getScreenshotAs</span><span class="p">(</span><span class="n">OutputType</span><span class="o">.</span><span class="n">FILE</span><span class="p">);</span>
-        <span class="n">FileUtils</span><span class="o">.</span><span class="n">copyFile</span><span class="p">(</span><span class="n">scrFile</span><span class="o">,</span> <span class="n">new</span> <span class="n">File</span><span class="p">(</span><span class="s2">"c:\\scr\\main_page.png"</span><span class="p">));</span>
-    <span class="p">}</span> <span class="nt">catch</span> <span class="o">(</span><span class="nt">Exception</span> <span class="nt">e</span><span class="o">)</span> <span class="p">{</span>
-        <span class="n">e</span><span class="o">.</span><span class="n">printStackTrace</span><span class="p">();</span>
-    <span class="p">}</span>
-<span class="p">}</span>
+<span class="kn">import</span> <span class="nn">org.junit.After</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.junit.Before</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.junit.Test</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ScreenshotTests</span> <span class="o">{</span>
+
+    <span class="n">WebDriver</span> <span class="n">driver</span><span class="o">;</span>
+
+    <span class="nd">@Before</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setUp</span><span class="o">()</span>
+    <span class="o">{</span>
+        <span class="n">driver</span> <span class="o">=</span> <span class="k">new</span> <span class="n">FirefoxDriver</span><span class="o">();</span>
+        <span class="n">driver</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">"http://www.google.com"</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Test</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">testTakesScreenshot</span><span class="o">()</span>
+    <span class="o">{</span>
+        <span class="k">try</span> <span class="o">{</span>
+            <span class="n">File</span> <span class="n">scrFile</span> <span class="o">=</span> <span class="o">((</span><span class="n">TakesScreenshot</span><span class="o">)</span><span class="n">driver</span><span class="o">).</span><span class="na">getScreenshotAs</span><span class="o">(</span><span class="n">OutputType</span><span class="o">.</span><span class="na">FILE</span><span class="o">);</span>
+            <span class="n">FileUtils</span><span class="o">.</span><span class="na">copyFile</span><span class="o">(</span><span class="n">scrFile</span><span class="o">,</span> <span class="k">new</span> <span class="n">File</span><span class="o">(</span><span class="s">"c:\\scr\\main_page.png"</span><span class="o">));</span>
+        <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">Exception</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">e</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
 
 
-<span class="k">@After</span>
-<span class="nt">public</span> <span class="nt">void</span> <span class="nt">teadDown</span><span class="o">()</span>
-<span class="p">{</span>
-    <span class="nt">driver</span><span class="nc">.close</span><span class="o">();</span>
-    <span class="nt">driver</span><span class="nc">.quit</span><span class="o">();</span>
-<span class="p">}</span>
+    <span class="nd">@After</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">teadDown</span><span class="o">()</span>
+    <span class="o">{</span>
+        <span class="n">driver</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
+        <span class="n">driver</span><span class="o">.</span><span class="na">quit</span><span class="o">();</span>
+    <span class="o">}</span>
+
+<span class="o">}</span>
 </pre></div>
 </td></tr></table>
-<p>}</p>
-<p>```</p>
 	</div>
 
 	<div id="related-articles">
