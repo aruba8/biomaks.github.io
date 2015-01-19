@@ -7,18 +7,16 @@ categories: javascript, selenium, webdriver, webelement
 * с помощью js метода глобального объекта window - `window.scrollTo(x, y)`; где x, y координаты необходиого элемента<!--more-->
 * либо с помощью js метода, который есть у каждого элемента DOM - `scrollIntoView()`
 
-```java first example
-    public void scrollElementIntoView(WebElement element){
-        JavascriptExecutor javascriptExecutor = (JavascriptExecutor) driver;
-        javascriptExecutor.executeScript("window.scrollTo("+element.getLocation().x+", "+element.getLocation().y+");");
-    }
-```
+
+        :::java
+        public void scrollElementIntoView(WebElement element){
+            JavascriptExecutor javascriptExecutor = (JavascriptExecutor) driver;
+            javascriptExecutor.executeScript("window.scrollTo("+element.getLocation().x+", 
+            "+element.getLocation().y+");");
+        }
 
 
-```java second example
-public void scrollElementIntoView(WebElement element){
-    JavascriptExecutor javascriptExecutor = (JavascriptExecutor) driver;
-    javascriptExecutor.executeScript("var element = document.getElementById('"+element.getAttribute("id")+"');" +
-        "element.scrollIntoView();");
-}
-```
+        public void scrollElementIntoView(WebElement element){
+            JavascriptExecutor javascriptExecutor = (JavascriptExecutor) driver;
+            javascriptExecutor.executeScript("var element = document.getElementById('"+element.getAttribute("id")+"');" + "element.scrollIntoView();");
+        }
