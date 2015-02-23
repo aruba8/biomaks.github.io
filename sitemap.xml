@@ -5,7 +5,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://qa7.ru/</loc>
-<lastmod>2015-02-16T20:00:43-00:00</lastmod>
+<lastmod>2015-02-23T18:56:57-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -20,6 +20,13 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
 <loc>http://qa7.ru/projects/</loc>
 <lastmod>2012-10-09T15:09:03+04:00</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://qa7.ru/blog/2015/02/23/docker-prodolzhenie/</loc>
+<lastmod>2015-02-23T11:38:04+04:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
@@ -180,7 +187,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://qa7.ru/author/erik.html</loc>
-<lastmod>2015-01-19T19:47:45+02:30</lastmod>
+<lastmod>2015-02-23T11:38:04+02:30</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
