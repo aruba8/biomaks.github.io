@@ -99,7 +99,7 @@ date: 2015-02-23 11:38:04 +0400
     <form method="POST" action="/add">
     <fieldset>
         <label for="firstname">Firstname</label><input id="firstname" type="text" name="firstname">
-        <label for="lastname">Fastname</label><input id="firstname" type="text" name="lastname">
+        <label for="lastname">Lastname</label><input id="firstname" type="text" name="lastname">
         <input type="submit" value="submit" />
     </fieldset>
     </form>
@@ -184,7 +184,9 @@ date: 2015-02-23 11:38:04 +0400
     a16ad5d110c9        my_app:latest             "/bin/sh -c 'python    2 hours ago         Up About an hour    0.0.0.0:5000->5000/tcp   web                 
     391cc197ab20        dockerfile/mysql:latest   "mysqld_safe"          3 months ago        Up About an hour    0.0.0.0:3306->3306/tcp   mysql   
 
-После этого пройдя по ip вы увидите наше приложение которое позволяет добавлять новые записи в БД и считывать их
+Пока еще наше приложение не работает, так в БД нет необходимых данных. Сейчас мы попробуем создать их подключившись к работающему контейнеру и выполнив скрипт из него. Для этого выполните следующую команду: `docker exec -ti web bash` вы окажитесь в запущенном контейнере в папке /my_application. Выполните `bash init_db.sh`. Все, после этого наше приложение готово.
+
+Пройдя по ip вы увидите наше приложение которое позволяет добавлять новые записи в БД и считывать их
 > ###Как узнать IP
 > Ip на котором доступно приложение, если у вас Mac или Windows можно получить командой `boot2docker ip`
 
