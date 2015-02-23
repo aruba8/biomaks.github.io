@@ -170,7 +170,7 @@ flask-mysql
 &lt;span class="nt"&gt;&amp;lt;form&lt;/span&gt; &lt;span class="na"&gt;method=&lt;/span&gt;&lt;span class="s"&gt;"POST"&lt;/span&gt; &lt;span class="na"&gt;action=&lt;/span&gt;&lt;span class="s"&gt;"/add"&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
 &lt;span class="nt"&gt;&amp;lt;fieldset&amp;gt;&lt;/span&gt;
     &lt;span class="nt"&gt;&amp;lt;label&lt;/span&gt; &lt;span class="na"&gt;for=&lt;/span&gt;&lt;span class="s"&gt;"firstname"&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;Firstname&lt;span class="nt"&gt;&amp;lt;/label&amp;gt;&amp;lt;input&lt;/span&gt; &lt;span class="na"&gt;id=&lt;/span&gt;&lt;span class="s"&gt;"firstname"&lt;/span&gt; &lt;span class="na"&gt;type=&lt;/span&gt;&lt;span class="s"&gt;"text"&lt;/span&gt; &lt;span class="na"&gt;name=&lt;/span&gt;&lt;span class="s"&gt;"firstname"&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
-    &lt;span class="nt"&gt;&amp;lt;label&lt;/span&gt; &lt;span class="na"&gt;for=&lt;/span&gt;&lt;span class="s"&gt;"lastname"&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;Fastname&lt;span class="nt"&gt;&amp;lt;/label&amp;gt;&amp;lt;input&lt;/span&gt; &lt;span class="na"&gt;id=&lt;/span&gt;&lt;span class="s"&gt;"firstname"&lt;/span&gt; &lt;span class="na"&gt;type=&lt;/span&gt;&lt;span class="s"&gt;"text"&lt;/span&gt; &lt;span class="na"&gt;name=&lt;/span&gt;&lt;span class="s"&gt;"lastname"&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;label&lt;/span&gt; &lt;span class="na"&gt;for=&lt;/span&gt;&lt;span class="s"&gt;"lastname"&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;Lastname&lt;span class="nt"&gt;&amp;lt;/label&amp;gt;&amp;lt;input&lt;/span&gt; &lt;span class="na"&gt;id=&lt;/span&gt;&lt;span class="s"&gt;"firstname"&lt;/span&gt; &lt;span class="na"&gt;type=&lt;/span&gt;&lt;span class="s"&gt;"text"&lt;/span&gt; &lt;span class="na"&gt;name=&lt;/span&gt;&lt;span class="s"&gt;"lastname"&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
     &lt;span class="nt"&gt;&amp;lt;input&lt;/span&gt; &lt;span class="na"&gt;type=&lt;/span&gt;&lt;span class="s"&gt;"submit"&lt;/span&gt; &lt;span class="na"&gt;value=&lt;/span&gt;&lt;span class="s"&gt;"submit"&lt;/span&gt; &lt;span class="nt"&gt;/&amp;gt;&lt;/span&gt;
 &lt;span class="nt"&gt;&amp;lt;/fieldset&amp;gt;&lt;/span&gt;
 &lt;span class="nt"&gt;&amp;lt;/form&amp;gt;&lt;/span&gt;
@@ -295,7 +295,8 @@ a16ad5d110c9        my_app:latest             "/bin/sh -c 'python    2 hours ago
 391cc197ab20        dockerfile/mysql:latest   "mysqld_safe"          3 months ago        Up About an hour    0.0.0.0:3306-&amp;gt;3306/tcp   mysql
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;p&gt;После этого пройдя по ip вы увидите наше приложение которое позволяет добавлять новые записи в БД и считывать их&lt;/p&gt;
+&lt;p&gt;Пока еще наше приложение не работает, так в БД нет необходимых данных. Сейчас мы попробуем создать их подключившись к работающему контейнеру и выполнив скрипт из него. Для этого выполните следующую команду: &lt;code&gt;docker exec -ti web bash&lt;/code&gt; вы окажитесь в запущенном контейнере в папке /my_application. Выполните &lt;code&gt;bash init_db.sh&lt;/code&gt;. Все, после этого наше приложение готово.&lt;/p&gt;
+&lt;p&gt;Пройдя по ip вы увидите наше приложение которое позволяет добавлять новые записи в БД и считывать их&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;h3&gt;Как узнать IP&lt;/h3&gt;
 &lt;p&gt;Ip на котором доступно приложение, если у вас Mac или Windows можно получить командой &lt;code&gt;boot2docker ip&lt;/code&gt;&lt;/p&gt;

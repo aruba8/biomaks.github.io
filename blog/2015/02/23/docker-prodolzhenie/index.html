@@ -253,7 +253,7 @@ flask-mysql
 <span class="nt">&lt;form</span> <span class="na">method=</span><span class="s">"POST"</span> <span class="na">action=</span><span class="s">"/add"</span><span class="nt">&gt;</span>
 <span class="nt">&lt;fieldset&gt;</span>
     <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"firstname"</span><span class="nt">&gt;</span>Firstname<span class="nt">&lt;/label&gt;&lt;input</span> <span class="na">id=</span><span class="s">"firstname"</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">name=</span><span class="s">"firstname"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"lastname"</span><span class="nt">&gt;</span>Fastname<span class="nt">&lt;/label&gt;&lt;input</span> <span class="na">id=</span><span class="s">"firstname"</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">name=</span><span class="s">"lastname"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"lastname"</span><span class="nt">&gt;</span>Lastname<span class="nt">&lt;/label&gt;&lt;input</span> <span class="na">id=</span><span class="s">"firstname"</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">name=</span><span class="s">"lastname"</span><span class="nt">&gt;</span>
     <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"submit"</span> <span class="na">value=</span><span class="s">"submit"</span> <span class="nt">/&gt;</span>
 <span class="nt">&lt;/fieldset&gt;</span>
 <span class="nt">&lt;/form&gt;</span>
@@ -378,7 +378,8 @@ a16ad5d110c9        my_app:latest             "/bin/sh -c 'python    2 hours ago
 391cc197ab20        dockerfile/mysql:latest   "mysqld_safe"          3 months ago        Up About an hour    0.0.0.0:3306-&gt;3306/tcp   mysql
 </pre></div>
 </td></tr></table>
-<p>После этого пройдя по ip вы увидите наше приложение которое позволяет добавлять новые записи в БД и считывать их</p>
+<p>Пока еще наше приложение не работает, так в БД нет необходимых данных. Сейчас мы попробуем создать их подключившись к работающему контейнеру и выполнив скрипт из него. Для этого выполните следующую команду: <code>docker exec -ti web bash</code> вы окажитесь в запущенном контейнере в папке /my_application. Выполните <code>bash init_db.sh</code>. Все, после этого наше приложение готово.</p>
+<p>Пройдя по ip вы увидите наше приложение которое позволяет добавлять новые записи в БД и считывать их</p>
 <blockquote>
 <h3>Как узнать IP</h3>
 <p>Ip на котором доступно приложение, если у вас Mac или Windows можно получить командой <code>boot2docker ip</code></p>
