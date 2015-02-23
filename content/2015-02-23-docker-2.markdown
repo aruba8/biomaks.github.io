@@ -1,0 +1,192 @@
+title: "Docker продолжение"
+date: 2015-02-23 11:38:04 +0400
+
+Категорически всех приветствую. Некоторое время назад я начал рассказывать про [Docker](http://qa7.ru/blog/2014/11/08/docker-bystryi-start/). Так как та статья покрывала только подъем контейнера, сегодня я расскажу как поднять два контейнера (с приложением и БД) и связать их вместе.
+
+Для начала создадим контейнер с простым приложением написанном на python с помощью flask+jinja2 это будет простая веб форма которая будет складывать некоторые данные в БД.
+
+создадим файл `Dockerfile` со следующим содержимым:
+
+    ############################################################
+    # Dockerfile to build Python WSGI Application Containers
+    # Based on Ubuntu
+    ############################################################
+
+    # Set the base image to Ubuntu
+    FROM ubuntu
+
+    # File Author / Maintainer
+    MAINTAINER MaintanerName
+    # Add the application resources URL
+    RUN echo "deb http://archive.ubuntu.com/ubuntu/ $(lsb_release -sc) main universe" >> /etc/apt/sources.list
+
+    # Update the sources list
+    RUN apt-get update
+
+    # Install basic applications
+    RUN apt-get install -y tar git curl nano wget dialog net-tools build-essential
+
+    # Install Python and dependencies
+    RUN apt-get install -y python python-dev python-distribute python-pip libmysqlclient-dev mysql-client
+
+    # Copy the application folder inside the container
+    ADD my_application /my_application
+    ADD db /my_application
+
+    # Expose ports
+    EXPOSE 5000
+
+    # Set the default directory where CMD will execute
+    WORKDIR /my_application
+
+    # Get pip to download and install requirements:
+    RUN pip install -r requirements.txt
+
+
+
+    # Set the default command to execute    
+    # when creating a new container
+    # i.e. using CherryPy to serve the application
+    CMD python app.py
+
+Этот файл является исходным для создания контейнера, в нем описаны все действия которые должны быть выполнены до того момента как он запустится. Некоторые команды в нем требуют пояснения:
+
+* FROM - директива которая указывает из какого исходного образа будет собран контейнер, в нашем случае это ubuntu. Так же при желании можно указать метку образа,это например необходимо если вас интересует не последняя версия ubuntu, а какая-то определенная. В этом случае эта срока будет выглядеть так `FROM ubuntu:12.04`
+
+* MAINTAINER - это как можно догадаться имя того кто поддерживает данный образ
+* RUN - важная директива, которая позволяет запускать различные команды операционной системы, например если вам необходимо что-то скопировать внутри образа, создать файловую структуру или установить необходимые программы.
+* ADD - директива которая копирует файлы, папки в файловую систему контейнера, формат у нее следующий `ADD <src>... <dest>` где <src> - путь к исходным файлам/папкам(должны быть относительными к директории с файлом `Dockerfile`), <dest> - конечный путь, должен быть абсолютным внутри контейнера 
+* EXPOSE - информирует Docker, что контейнер будет слушать определенный порт в процессе работы
+* WORKDIR - устанавливает рабочую директорию для команд `RUN`, `CMD`, `ADD`
+* CMD - по сути инструкция по умолчанию для контейнера, которая запустится после старта контейнер. Эта инструкция может быть только одна. Если их несколько то запустится только последняя.
+
+Далее создадим следующую файловую структуру для нашего приложения:
+
+    /working_dir
+        |
+        |- /my_application
+            |
+            |- requirements.txt  
+            |- /templates
+                |- index.html        
+            |- app.py            
+        |- /db
+            |- init_db.sh
+            |- dump.sql
+        |- Dockerfile
+
+
+файл `requirements.txt`
+
+    flask
+    flask-mysql
+
+файл `index.html`
+    
+    <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
+    <html lang="en">
+    <head>
+        <title>My Webpage</title>
+    </head>
+    <body>
+
+        <ul id="navigation">
+        {% for item in data %}
+            <li> {{ item[1] }} {{ item[2] }}</li>
+        {% endfor %}
+        </ul>
+
+    <form method="POST" action="/add">
+    <fieldset>
+        <label for="firstname">Firstname</label><input id="firstname" type="text" name="firstname">
+        <label for="lastname">Fastname</label><input id="firstname" type="text" name="lastname">
+        <input type="submit" value="submit" />
+    </fieldset>
+    </form>
+
+    </body>
+    </html>
+
+файл `app.py`
+    
+    :::python
+    from flask import Flask, redirect, url_for, request
+    from flaskext.mysql import MySQL
+    from flask import render_template
+    import os
+     
+    mysql = MySQL()
+    app = Flask(__name__)
+    app.config['MYSQL_DATABASE_USER'] = 'root'
+    app.config['MYSQL_DATABASE_DB'] = 'mydb'
+    app.config['MYSQL_DATABASE_HOST'] = os.environ['MYSQL_PORT_3306_TCP_ADDR']
+    mysql.init_app(app)
+
+    cursor = mysql.connect().cursor()
+
+    @app.route("/")
+    def index():
+        cursor.execute("SELECT * from guests")
+        data = cursor.fetchall()
+        return render_template("index.html", data=data)
+     
+    @app.route("/add", methods=['POST'])
+    def add():
+        query = "INSERT INTO guests VALUES (null, %s, %s)"
+        firstname = request.form['firstname']
+        lastname = request.form['lastname']
+        cursor.execute(query, (firstname, lastname)) 
+        return redirect(url_for('index'))
+
+    if __name__ == "__main__":
+        app.run(host='0.0.0.0',debug=True)
+
+Далее нам необходимы скрипты для подготовки БД, их нужно будет выполнить уже на запущенных контейнерах
+файл `init_db.sh`
+
+    #!/bin/bash
+    sleep 5
+    mysql -u root -h $MYSQL_PORT_3306_TCP_ADDR -e "CREATE DATABASE IF NOT EXISTS mydb"
+    mysql -u root -h $MYSQL_PORT_3306_TCP_ADDR mydb < dump.sql
+
+файл `dump.sql`
+    
+    :::sql
+    DROP TABLE IF EXISTS `guests`;
+    CREATE TABLE `guests` (
+      `id` int(6) unsigned NOT NULL AUTO_INCREMENT,
+      `firstname` varchar(30) NOT NULL,
+      `lastname` varchar(30) NOT NULL,
+      PRIMARY KEY (`id`)
+    ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+    LOCK TABLES `guests` WRITE;
+    INSERT INTO `guests` VALUES (1,'Tom','Soyer'),(2,'John','Dow');
+    UNLOCK TABLES;
+
+
+После того как мы подготовили все необходимое, запускаем контейнер с mysql как описано [в этой статье](http://qa7.ru/blog/2014/11/08/docker-bystryi-start/). Контейнер с mysql должен также иметь имя mysql.
+Находясь в папке с файлом `Dockerfile` соберем образ контейнера из этого файла, который назовем `my_app`
+
+    docker build -t "my_app" .
+
+после того как контейнер сбилдится запустим его и слинкуем с контейнером mysql следующей командой:
+    
+    docker run -d --name web -p 5000:5000 --link mysql:mysql my_app
+
+собственно ради этой строчки мы и городили весь огород, давайте рассмотрим ее по подробнее
+параметр `--link mysql:mysql` говорит какой контейнер связать с контейнером из образа my_app под алиасом `mysql`
+параметр `-p 5000:5000` говорит какой порт нашего контейнера с приложение пробросить на порт 5000, чтоб оно стало доступно снаружи
+параметр `--name web` задает имя контейнеру 
+
+запустив команду `docker ps` мы должны увидить примерно следующее:
+    
+    CONTAINER ID        IMAGE                     COMMAND                CREATED             STATUS              PORTS                    NAMES
+    a16ad5d110c9        my_app:latest             "/bin/sh -c 'python    2 hours ago         Up About an hour    0.0.0.0:5000->5000/tcp   web                 
+    391cc197ab20        dockerfile/mysql:latest   "mysqld_safe"          3 months ago        Up About an hour    0.0.0.0:3306->3306/tcp   mysql   
+
+После этого пройдя по ip вы увидите наше приложение которое позволяет добавлять новые записи в БД и считывать их
+> ###Как узнать IP
+> Ip на котором доступно приложение, если у вас Mac или Windows можно получить командой `boot2docker ip`
+
+на этом пока все
+
