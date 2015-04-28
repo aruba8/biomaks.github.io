@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<!-- Basic Metas -->
+	<meta charset="utf-8">
+	<title>"Headless webdriver тесты на python" | qa7.ru</title>
+	<meta name="description" content="Небольшая полезняшка тем кто пишет тесты на python и вынужден запускать их headless. Для запуска тестов нам понадобится Xvfb. Xvfb это виртуальный Х-сервер который для вывода использует не видеокарту, а оперативную память, так что браузер разницы не заметит. И еще нам понадобится python библиотека pyvirtualdisplay, подробнее о ней тут. устанавливаем ...">
+	<meta name="author" content="Erik Khalimov">
+	<link rel="author" href="https://plus.google.com/+ErikKhalimov"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<!-- Twitter Cards and Open Graph -->
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:creator" content="@biomehanik">
+	<meta name="twitter:domain" content="">
+	<meta name="twitter:site" content="@biomehanik">
+	<meta property="og:title" content=""Headless webdriver тесты на python"">
+	<meta property="og:description" content="Небольшая полезняшка тем кто пишет тесты на python и вынужден запускать их headless. Для запуска тестов нам понадобится Xvfb. Xvfb это виртуальный Х-сервер который для вывода использует не видеокарту, а оперативную память, так что браузер разницы не заметит. И еще нам понадобится python библиотека pyvirtualdisplay, подробнее о ней тут. устанавливаем ...">
+	<meta property="og:image" content="http://qa7.ru/theme/images/avatar512.png">
+	<meta property="og:type" content="article">
+	<meta property="og:url" content="http://qa7.ru/blog/2015/04/28/headless-webdriver-testy-na-python/">
+
+	<!-- Stylesheets and Web Fonts -->
+	<link href="/theme/style.min.css" rel="stylesheet">
+	<link href="//fonts.googleapis.com/css?family=Raleway:400,600|Source+Code+Pro" rel="stylesheet" type="text/css">
+	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
+	<!-- Favicons -->
+	<link rel="apple-touch-icon" href="/theme/images/apple-touch-icon.png">
+	<link rel="apple-touch-icon" sizes="57x57" href="/theme/images/apple-touch-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="/theme/images/apple-touch-icon-60x60.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="/theme/images/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="/theme/images/apple-touch-icon-76x76.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="/theme/images/apple-touch-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="/theme/images/apple-touch-icon-120x120.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="/theme/images/apple-touch-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="/theme/images/apple-touch-icon-152x152.png">
+
+	<link rel="icon" type="image/png" href="/theme/images/favicon-16x16.png" sizes="16x16">
+	<link rel="icon" type="image/png" href="/theme/images/favicon-32x32.png" sizes="32x32">
+	<link rel="icon" type="image/png" href="/theme/images/favicon-96x96.png" sizes="96x96">
+	<link rel="icon" type="image/png" href="/theme/images/favicon-160x160.png" sizes="160x160">
+	<link rel="icon" type="image/png" href="/theme/images/favicon-196x196.png" sizes="196x196">
+
+	<meta name="application-name" content="qa7.ru">
+	<meta name="msapplication-TileColor" content="#da532c">
+	<meta name="msapplication-TileImage" content="theme/images/mstile-144x144.png">
+	<meta name="msapplication-square70x70logo" content="theme/images/mstile-small.png">
+	<meta name="msapplication-square150x150logo" content="theme/images/mstile-medium.png">
+	<meta name="msapplication-wide310x150logo" content="theme/images/mstile-wide.png">
+	<meta name="msapplication-square310x310logo" content="theme/images/mstile-large.png">
+
+	<!--[if lt IE 9]>
+	<script src="/theme/js/html5shiv.min.js"></script>
+	<script src="/theme/js/respond.min.js"></script>
+	<![endif]-->
+</head>
+
+<body>
+	<div class="container">
+		<aside id="sidebar" class="side-column">
+			<a href="/"><img id="avatar" alt="Site Avatar" src="/theme/images/avatar.png"></a>
+			<div id="logo" class="text-center"><a href="/">qa7.ru</a></div>
+			<div id="bio" class="text-center">Blog about programming, testing and life</div>
+
+			<div id="sidebar-links" class="text-center">
+				<a href="/about/">About</a>&ensp;&bull;&ensp;<a href="/projects/">Projects</a>
+			</div>
+
+			<div id="social" class="text-center">
+				<a href="mailto:biomaks@gmail.com" title="Email" class="icon fa fa-envelope"></a>
+				<a href="http://twitter.com/biomehanik" title="Twitter" class="icon fa fa-twitter"></a>
+				<a href="http://plus.google.com/+ErikKhalimov" title="Google+" class="icon fa fa-google-plus-square"></a>
+				<a href="http://github.com/biomaks" title="GitHub" class="icon fa fa-github"></a>
+				<a href="atom.xml" title="RSS" class="icon fa fa-rss"></a>
+			</div>
+
+			<hr id="sidebar-divider">
+		</aside>
+
+		<article class="main-column">
+	<h1 class="title"><a href="/blog/2015/04/28/headless-webdriver-testy-na-python/" title="Permalink to "Headless webdriver тесты на python"">"Headless webdriver тесты на python"</a></h1>
+	<time class="date" datetime="2015-04-28 19:36:04+04:00">April 28, 2015</time>
+	<div class="content">
+		<p>Небольшая полезняшка тем кто пишет тесты на python и вынужден запускать их headless.</p>
+<p>Для запуска тестов нам понадобится <code>Xvfb</code>. <code>Xvfb</code> <a href="http://en.wikipedia.org/wiki/Xvfb">это</a> виртуальный Х-сервер который для вывода использует не видеокарту, а оперативную память, так что браузер разницы не заметит.</p>
+<p>И еще нам понадобится python библиотека <code>pyvirtualdisplay</code>, подробнее о ней <a href="https://pypi.python.org/pypi/PyVirtualDisplay">тут</a>.</p>
+<p>устанавливаем <code>Xvfb</code>:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre>sudo apt-get install xvfb
+</pre></div>
+</td></tr></table>
+<p>устанавливаем <code>pyvirtualdisplay</code></p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre>sudo pip install pyvirtualdisplay
+</pre></div>
+</td></tr></table>
+<p>обратите внимание <code>pyvirtualdisplay</code> необходимо устанавливать с правами <code>root</code>, иначе не заработает</p>
+<p>и собственно тест:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="codehilite"><pre><span class="kn">from</span> <span class="nn">pyvirtualdisplay</span> <span class="kn">import</span> <span class="n">Display</span>  
+<span class="kn">from</span> <span class="nn">selenium</span> <span class="kn">import</span> <span class="n">webdriver</span>  
+<span class="sd">"""visible=0, visible=1 for display or not virual display"""</span>  
+<span class="n">display</span> <span class="o">=</span> <span class="n">Display</span><span class="p">(</span><span class="n">visible</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span> <span class="p">(</span><span class="mi">1024</span><span class="p">,</span> <span class="mi">768</span><span class="p">))</span>
+<span class="n">display</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+<span class="n">driver</span><span class="o">=</span> <span class="n">webdriver</span><span class="o">.</span><span class="n">Chrome</span><span class="p">()</span> 
+<span class="n">driver</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">'http://qa7.ru'</span><span class="p">)</span>
+<span class="k">print</span> <span class="s">'The title of current page is: '</span><span class="p">,</span> <span class="n">driver</span><span class="o">.</span><span class="n">title</span>  
+<span class="n">driver</span><span class="o">.</span><span class="n">quit</span><span class="p">()</span>
+<span class="n">display</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
+</pre></div>
+</td></tr></table>
+<p>Теперь можно, гонять тесты, снимать скриншоты и т.д.</p>
+	</div>
+
+	<div id="related-articles">
+		<a href="/blog/2015/03/29/voprosy-na-interviu-kak-perevernut-massiv/" id="prev-neighbour">"Вопросы на интервью. Как перевернуть массив? " &raquo;</a>
+	</div>
+
+	<hr>
+
+	<!-- Disqus -->
+	<div id="disqus_thread"></div>
+	<script type="text/javascript">
+		var disqus_shortname = 'biomaks-github-io';
+		(function() {
+			var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+			dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+			(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+		})();
+	</script>
+			<hr>
+		</article>
+
+		<footer class="main-column">
+			<p>Powered by <a href="http://getpelican.com">Pelican</a> and <a href="http://pages.github.com">GitHub&nbsp;Pages</a>.</p>
+		</footer>
+	</div>
+
+	<!-- Google Analytics -->
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-46878829-1', '');
+		ga('send', 'pageview');
+	</script>
+
+	<!-- Yandex.Metrika counter -->
+	<script type="text/javascript">
+	(function (d, w, c) {
+	    (w[c] = w[c] || []).push(function() {
+	        try {
+	            w.yaCounter23571979 = new Ya.Metrika({id:23571979,
+	                    webvisor:true,
+	                    clickmap:true,
+	                    trackLinks:true,
+	                    accurateTrackBounce:true});
+	        } catch(e) { }
+	    });
+
+	    var n = d.getElementsByTagName("script")[0],
+	        s = d.createElement("script"),
+	        f = function () { n.parentNode.insertBefore(s, n); };
+	    s.type = "text/javascript";
+	    s.async = true;
+	    s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js";
+
+	    if (w.opera == "[object Opera]") {
+	        d.addEventListener("DOMContentLoaded", f, false);
+	    } else { f(); }
+	})(document, window, "yandex_metrika_callbacks");
+	</script>
+	<noscript><div><img src="//mc.yandex.ru/watch/23571979" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+	<!-- /Yandex.Metrika counter -->
+</body>
+</html>
