@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<!-- Basic Metas -->
+	<meta charset="utf-8">
+	<title>"Традиционное тестирование скоро умрет!" | qa7.ru</title>
+	<meta name="description" content="Это моя попытка перевести примечательную статью отсюда: http://www.agilebuddha.com/agile/traditional-testing-will-be-dead-soon/ Соответственно не судите строго :) Рутинные задачи в разработке ПО автоматизируются посредством приложений Continuous Delivery и DevOps. Разработчики берут на себя все больше и больше ответственности. Мне стало интересно какова будет роль традиционного тестирования и тестировщиков если посмотреть ...">
+	<meta name="author" content="Erik Khalimov">
+	<link rel="author" href="https://plus.google.com/+ErikKhalimov"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<!-- Twitter Cards and Open Graph -->
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:creator" content="@biomehanik">
+	<meta name="twitter:domain" content="">
+	<meta name="twitter:site" content="@biomehanik">
+	<meta property="og:title" content=""Традиционное тестирование скоро умрет!"">
+	<meta property="og:description" content="Это моя попытка перевести примечательную статью отсюда: http://www.agilebuddha.com/agile/traditional-testing-will-be-dead-soon/ Соответственно не судите строго :) Рутинные задачи в разработке ПО автоматизируются посредством приложений Continuous Delivery и DevOps. Разработчики берут на себя все больше и больше ответственности. Мне стало интересно какова будет роль традиционного тестирования и тестировщиков если посмотреть ...">
+	<meta property="og:image" content="http://qa7.ru/theme/images/avatar512.png">
+	<meta property="og:type" content="article">
+	<meta property="og:url" content="http://qa7.ru/blog/2015/08/22/traditsionnoe-testirovanie-skoro-umret/">
+
+	<!-- Stylesheets and Web Fonts -->
+	<link href="/theme/style.min.css" rel="stylesheet">
+	<link href="//fonts.googleapis.com/css?family=Raleway:400,600|Source+Code+Pro" rel="stylesheet" type="text/css">
+	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
+	<!-- Favicons -->
+	<link rel="apple-touch-icon" href="/theme/images/apple-touch-icon.png">
+	<link rel="apple-touch-icon" sizes="57x57" href="/theme/images/apple-touch-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="/theme/images/apple-touch-icon-60x60.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="/theme/images/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="/theme/images/apple-touch-icon-76x76.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="/theme/images/apple-touch-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="/theme/images/apple-touch-icon-120x120.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="/theme/images/apple-touch-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="/theme/images/apple-touch-icon-152x152.png">
+
+	<link rel="icon" type="image/png" href="/theme/images/favicon-16x16.png" sizes="16x16">
+	<link rel="icon" type="image/png" href="/theme/images/favicon-32x32.png" sizes="32x32">
+	<link rel="icon" type="image/png" href="/theme/images/favicon-96x96.png" sizes="96x96">
+	<link rel="icon" type="image/png" href="/theme/images/favicon-160x160.png" sizes="160x160">
+	<link rel="icon" type="image/png" href="/theme/images/favicon-196x196.png" sizes="196x196">
+
+	<meta name="application-name" content="qa7.ru">
+	<meta name="msapplication-TileColor" content="#da532c">
+	<meta name="msapplication-TileImage" content="theme/images/mstile-144x144.png">
+	<meta name="msapplication-square70x70logo" content="theme/images/mstile-small.png">
+	<meta name="msapplication-square150x150logo" content="theme/images/mstile-medium.png">
+	<meta name="msapplication-wide310x150logo" content="theme/images/mstile-wide.png">
+	<meta name="msapplication-square310x310logo" content="theme/images/mstile-large.png">
+
+	<!--[if lt IE 9]>
+	<script src="/theme/js/html5shiv.min.js"></script>
+	<script src="/theme/js/respond.min.js"></script>
+	<![endif]-->
+</head>
+
+<body>
+	<div class="container">
+		<aside id="sidebar" class="side-column">
+			<a href="/"><img id="avatar" alt="Site Avatar" src="/theme/images/avatar.png"></a>
+			<div id="logo" class="text-center"><a href="/">qa7.ru</a></div>
+			<div id="bio" class="text-center">Blog about programming, testing and life</div>
+
+			<div id="sidebar-links" class="text-center">
+				<a href="/about/">About</a>&ensp;&bull;&ensp;<a href="/projects/">Projects</a>
+			</div>
+
+			<div id="social" class="text-center">
+				<a href="mailto:biomaks@gmail.com" title="Email" class="icon fa fa-envelope"></a>
+				<a href="http://twitter.com/biomehanik" title="Twitter" class="icon fa fa-twitter"></a>
+				<a href="http://plus.google.com/+ErikKhalimov" title="Google+" class="icon fa fa-google-plus-square"></a>
+				<a href="http://github.com/biomaks" title="GitHub" class="icon fa fa-github"></a>
+				<a href="atom.xml" title="RSS" class="icon fa fa-rss"></a>
+			</div>
+
+			<hr id="sidebar-divider">
+		</aside>
+
+		<article class="main-column">
+	<h1 class="title"><a href="/blog/2015/08/22/traditsionnoe-testirovanie-skoro-umret/" title="Permalink to "Традиционное тестирование скоро умрет!"">"Традиционное тестирование скоро умрет!"</a></h1>
+	<time class="date" datetime="2015-08-22 17:00:12+03:00">August 22, 2015</time>
+	<div class="content">
+		<p>Это моя попытка перевести примечательную статью отсюда: <a href="http://www.agilebuddha.com/agile/traditional-testing-will-be-dead-soon/">http://www.agilebuddha.com/agile/traditional-testing-will-be-dead-soon/</a> </p>
+<p>Соответственно не судите строго :)</p>
+<p>Рутинные задачи в разработке ПО автоматизируются посредством приложений Continuous Delivery и DevOps. Разработчики берут на себя все больше и больше ответственности. Мне стало интересно какова будет роль традиционного тестирования и тестировщиков если посмотреть немного вперед. </p>
+<p><img alt="Newspapers will die" src="http://qa7.ru/images/gallery/other/newspapers-are-dead.png" style="width: 600px; height: auto; max-width: 100%;"/></p>
+<p>Этот вопрос беспокоил меня с тех пор как я посмотрел на пирамиду тестирования, концепт придуманный Mike Kohn в его книге  <a href="http://www.amazon.com/Succeeding-Agile-Software-Development-Using/dp/0321579364">“Succeeding with Agile”</a>. Ее суть состоит в том, что у вас должно быть 70-80% юнит-тестов, затем 10% интеграционных тестов, затем 5% системных тестов и наконец 5% GUI тестов. </p>
+<p><img alt="Пирамида тестирования" src="http://qa7.ru/images/gallery/other/testing-triangle.png" style="width: 1024px; height: auto; max-width: 100%;"/></p>
+<p>Процентный разброс может различаться. Вся суть в том, что у вас должно быть намного больше низкоуровневых юнит-тестов, чем высокоуровневых тестов через GUI. </p>
+<p>Если вы взгляните на это немного глубже, это становится возможно только если тестировщик так же обладает программистскими навыками. Просмотром исходного кода он сможет понять роль юнит-тестирования в понижении рисков по отношению к end-to-end (неразрывному) тестированию. </p>
+<p>Сейчас команды двигаются по направлению к  Acceptance Test Driven Development (ATDD). Где опять же играет роль программирование.</p>
+<p>Когда бы я ни услышал историю успеха пирамиды тестирования, в ней всегда есть ключевой фактор успеха. Это либо программисты проводили все тестирование, либо тестировщики научились программированию для того чтобы тестировать.</p>
+<p>Люди избавляются от ручной работы как замечено в <a href="http://less.works/less/principles/queueing_theory.html">LeSS queuing theory</a>. В процессе они отходят от роли тестировщика полностью. Это становится достаточно распространенным во многих стартапах в эти дни.</p>
+<p>По моему мнению, двигаясь вперед, обе роли обретут возможность к программированию как предпосылку в части развития. Разница будет только в том, что тест-инженеры на первый план поставят тестирование, а разработку на второй. Они будут тратить добрую долю своего времени программируя в форме написания скриптов и кода для автоматизированных сценариев.  </p>
+<p>Тест-инженерам суждено стать продуктовыми экспертами, советниками по качеству и риск аналитиками. </p>
+<p>В заключении:</p>
+<p>Ушли в прошлое те времена, когда ручного тестирования было достаточно, и тестовый цикл мог занять месяцы. Тестерам необходимо стать хорошими программистами для того чтобы двигаться вперед. Просто быть знакомым с программированием уже не достаточно. Они должны быть способны изучать и развивать последние фреймворки автоматизации и работать со скриптовыми технологиями чтобы быть конкурентно способными. </p>
+	</div>
+
+	<div id="related-articles">
+		<a href="/blog/2015/07/19/ob-avtomatizatsii-testirovaniia/" id="prev-neighbour">"Об автоматизации тестирования" &raquo;</a>
+	</div>
+
+	<hr>
+
+	<!-- Disqus -->
+	<div id="disqus_thread"></div>
+	<script type="text/javascript">
+		var disqus_shortname = 'biomaks-github-io';
+		(function() {
+			var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+			dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+			(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+		})();
+	</script>
+			<hr>
+		</article>
+
+		<footer class="main-column">
+			<p>Powered by <a href="http://getpelican.com">Pelican</a> and <a href="http://pages.github.com">GitHub&nbsp;Pages</a>.</p>
+		</footer>
+	</div>
+
+	<!-- Google Analytics -->
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-46878829-1', '');
+		ga('send', 'pageview');
+	</script>
+
+	<!-- Yandex.Metrika counter -->
+	<script type="text/javascript">
+	(function (d, w, c) {
+	    (w[c] = w[c] || []).push(function() {
+	        try {
+	            w.yaCounter23571979 = new Ya.Metrika({id:23571979,
+	                    webvisor:true,
+	                    clickmap:true,
+	                    trackLinks:true,
+	                    accurateTrackBounce:true});
+	        } catch(e) { }
+	    });
+
+	    var n = d.getElementsByTagName("script")[0],
+	        s = d.createElement("script"),
+	        f = function () { n.parentNode.insertBefore(s, n); };
+	    s.type = "text/javascript";
+	    s.async = true;
+	    s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js";
+
+	    if (w.opera == "[object Opera]") {
+	        d.addEventListener("DOMContentLoaded", f, false);
+	    } else { f(); }
+	})(document, window, "yandex_metrika_callbacks");
+	</script>
+	<noscript><div><img src="//mc.yandex.ru/watch/23571979" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+	<!-- /Yandex.Metrika counter -->
+</body>
+</html>
