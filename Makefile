@@ -27,10 +27,20 @@ DROPBOX_DIR=~/Dropbox/Public/
 
 GITHUB_PAGES_BRANCH=master
 
+
+
+PAGESDIR=$(INPUTDIR)/pages
+DATE := $(shell date +'%Y-%m-%d %H:%M:%S')
+SHORT_DATE := $(shell date +'%Y-%m-%d')
+SLUG := $(shell echo '${NAME}' | sed -e 's/[^[:alnum:]]/-/g' | tr -s '-' | tr A-Z a-z)
+EXT ?= markdown
+
+
 DEBUG ?= 0
 ifeq ($(DEBUG), 1)
 	PELICANOPTS += -D
 endif
+
 
 help:
 	@echo 'Makefile for a pelican Web site                                        '
@@ -50,6 +60,7 @@ help:
 	@echo '   make s3_upload                   upload the web site via S3         '
 	@echo '   make cf_upload                   upload the web site via Cloud Files'
 	@echo '   make github                      upload the web site via gh-pages   '
+	@echo '   make newpost [NAME=...]          create new empty post file         '
 	@echo '                                                                       '
 	@echo 'Set the DEBUG variable to 1 to enable debugging, e.g. make DEBUG=1 html'
 	@echo '                                                                       '
@@ -108,3 +119,17 @@ github: publish
 	git push origin $(GITHUB_PAGES_BRANCH)
 
 .PHONY: html help clean regenerate serve devserver publish ssh_upload rsync_upload dropbox_upload ftp_upload s3_upload cf_upload github
+
+newpost:
+ifdef NAME
+	echo "Title: $(NAME)" >  $(INPUTDIR)/${SHORT_DATE}-$(SLUG).$(EXT)
+	echo "Date: $(DATE)" >> $(INPUTDIR)/${SHORT_DATE}-$(SLUG).$(EXT)
+	echo "Categories: " >> $(INPUTDIR)/${SHORT_DATE}-$(SLUG).$(EXT)
+	echo ""              >> $(INPUTDIR)/${SHORT_DATE}-$(SLUG).$(EXT)
+	echo ""              >> $(INPUTDIR)/${SHORT_DATE}-$(SLUG).$(EXT)
+	${EDITOR} ${INPUTDIR}/${SHORT_DATE}-${SLUG}.${EXT} &
+else
+	@echo 'Variable NAME is not defined.'
+	@echo 'Do make newpost NAME='"'"'Post Name'"'"
+endif
+
