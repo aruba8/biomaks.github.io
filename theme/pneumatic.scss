@@ -311,6 +311,12 @@ footer p {
 #next-neighbour { float: left; }
 #prev-neighbour { float: right; }
 
+#st { 
+	margin-top: 20px;
+	display: block;
+	text-align: center;
+}
+
 
 // Media Queries
 
@@ -328,6 +334,8 @@ footer p {
 
 		div { margin: 5px 0; }
 	}
+
+	#st { display: none;}
 
 	#avatar { float: left; }
 	#social .icon { padding: 0 1px; }

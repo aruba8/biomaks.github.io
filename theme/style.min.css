@@ -417,8 +417,15 @@ footer p {
   float: right;
 }
 
+@media -sass-debug-info{filename{}line{font-family:\00003314}}
+#st {
+  margin-top: 20px;
+  display: block;
+  text-align: center;
+}
+
 @media only screen and (max-width: 959px) {
-@media -sass-debug-info{filename{}line{font-family:\00003320}}
+@media -sass-debug-info{filename{}line{font-family:\00003326}}
   #sidebar {
     position: absolute;
     width: 280px;
@@ -428,55 +435,60 @@ footer p {
     left: 0;
     right: 0;
   }
-@media -sass-debug-info{filename{}line{font-family:\00003329}}
+@media -sass-debug-info{filename{}line{font-family:\00003335}}
   #sidebar div {
     margin: 5px 0;
   }
 
-@media -sass-debug-info{filename{}line{font-family:\00003332}}
+@media -sass-debug-info{filename{}line{font-family:\00003338}}
+  #st {
+    display: none;
+  }
+
+@media -sass-debug-info{filename{}line{font-family:\00003340}}
   #avatar {
     float: left;
   }
 
-@media -sass-debug-info{filename{}line{font-family:\00003333}}
+@media -sass-debug-info{filename{}line{font-family:\00003341}}
   #social .icon {
     padding: 0 1px;
   }
 
-@media -sass-debug-info{filename{}line{font-family:\00003334}}
+@media -sass-debug-info{filename{}line{font-family:\00003342}}
   article {
     margin-top: 120px !important;
   }
 }
 @media only screen and (max-width: 767px) {
-@media -sass-debug-info{filename{}line{font-family:\00003338}}
+@media -sass-debug-info{filename{}line{font-family:\00003346}}
   .title, .date {
     text-align: center;
     float: none;
   }
 
-@media -sass-debug-info{filename{}line{font-family:\00003343}}
+@media -sass-debug-info{filename{}line{font-family:\00003351}}
   h1 {
     font-size: 24px;
   }
 
-@media -sass-debug-info{filename{}line{font-family:\00003345}}
+@media -sass-debug-info{filename{}line{font-family:\00003353}}
   #sidebar-divider {
     display: block;
   }
 }
 @media only print {
-@media -sass-debug-info{filename{}line{font-family:\00003349}}
+@media -sass-debug-info{filename{}line{font-family:\00003357}}
   footer, #sidebar, #disqus_thread, #related-articles, #back-to-home {
     display: none !important;
   }
 
-@media -sass-debug-info{filename{}line{font-family:\00003353}}
+@media -sass-debug-info{filename{}line{font-family:\00003361}}
   p a:after {
     content: " [" attr(href) "]";
   }
 
-@media -sass-debug-info{filename{}line{font-family:\00003355}}
+@media -sass-debug-info{filename{}line{font-family:\00003363}}
   .linenos {
     border-right: none;
   }
