@@ -5,7 +5,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://qa7.ru/</loc>
-<lastmod>2015-09-04T19:55:51-00:00</lastmod>
+<lastmod>2015-09-12T15:45:08-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -20,6 +20,13 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
 <loc>http://qa7.ru/projects/</loc>
 <lastmod>2012-10-09T15:09:03+04:00</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://qa7.ru/blog/2015/09/12/defekt-tsenoi-v-440-millionov-dollarov/</loc>
+<lastmod>2015-09-12T15:44:29+03:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
@@ -229,7 +236,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://qa7.ru/author/erik.html</loc>
-<lastmod>2015-09-04T19:32:19+02:30</lastmod>
+<lastmod>2015-09-12T15:44:29+02:30</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
