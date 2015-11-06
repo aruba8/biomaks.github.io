@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<!-- Basic Metas -->
+	<meta charset="utf-8">
+	<title>Как поднять свой VPN | qa7.ru</title>
+	<meta name="description" content="Прошлый раз я во всю пел хвалебные оды хостингу Digitalocean, где помимо прочего я обещал рассказать как поднять на этом хостинге свой vpn сервер с помощью Docker. За чем нужен свой vpn? Это каждый решает сам для себя. Можно например посещать сайты, которые по каким либо причинам недоступны из той ...">
+	<meta name="author" content="Erik Khalimov">
+	<link rel="author" href="https://plus.google.com/+ErikKhalimov"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<!-- Twitter Cards and Open Graph -->
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:creator" content="@biomehanik">
+	<meta name="twitter:domain" content="">
+	<meta name="twitter:site" content="@biomehanik">
+	<meta property="og:title" content="Как поднять свой VPN">
+	<meta property="og:description" content="Прошлый раз я во всю пел хвалебные оды хостингу Digitalocean, где помимо прочего я обещал рассказать как поднять на этом хостинге свой vpn сервер с помощью Docker. За чем нужен свой vpn? Это каждый решает сам для себя. Можно например посещать сайты, которые по каким либо причинам недоступны из той ...">
+	<meta property="og:image" content="http://qa7.ru/theme/images/avatar512.png">
+	<meta property="og:type" content="article">
+	<meta property="og:url" content="http://qa7.ru/blog/2015/11/06/kak-podniat-svoi-vpn/">
+
+	<!-- Stylesheets and Web Fonts -->
+	<link href="/theme/style.min.css" rel="stylesheet">
+	<link href="//fonts.googleapis.com/css?family=Raleway:400,600|Source+Code+Pro" rel="stylesheet" type="text/css">
+	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
+	<!-- Favicons -->
+	<link rel="apple-touch-icon" href="/theme/images/apple-touch-icon.png">
+	<link rel="apple-touch-icon" sizes="57x57" href="/theme/images/apple-touch-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="/theme/images/apple-touch-icon-60x60.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="/theme/images/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="/theme/images/apple-touch-icon-76x76.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="/theme/images/apple-touch-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="/theme/images/apple-touch-icon-120x120.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="/theme/images/apple-touch-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="/theme/images/apple-touch-icon-152x152.png">
+
+	<link rel="icon" type="image/png" href="/theme/images/favicon-16x16.png" sizes="16x16">
+	<link rel="icon" type="image/png" href="/theme/images/favicon-32x32.png" sizes="32x32">
+	<link rel="icon" type="image/png" href="/theme/images/favicon-96x96.png" sizes="96x96">
+	<link rel="icon" type="image/png" href="/theme/images/favicon-160x160.png" sizes="160x160">
+	<link rel="icon" type="image/png" href="/theme/images/favicon-196x196.png" sizes="196x196">
+
+	<meta name="application-name" content="qa7.ru">
+	<meta name="msapplication-TileColor" content="#da532c">
+	<meta name="msapplication-TileImage" content="theme/images/mstile-144x144.png">
+	<meta name="msapplication-square70x70logo" content="theme/images/mstile-small.png">
+	<meta name="msapplication-square150x150logo" content="theme/images/mstile-medium.png">
+	<meta name="msapplication-wide310x150logo" content="theme/images/mstile-wide.png">
+	<meta name="msapplication-square310x310logo" content="theme/images/mstile-large.png">
+
+	<!--[if lt IE 9]>
+	<script src="/theme/js/html5shiv.min.js"></script>
+	<script src="/theme/js/respond.min.js"></script>
+	<![endif]-->
+</head>
+
+<body>
+	<div class="container">
+		<aside id="sidebar" class="side-column">
+			<a href="/"><img id="avatar" alt="Site Avatar" src="/theme/images/avatar.png"></a>
+			<div id="logo" class="text-center"><a href="/">qa7.ru</a></div>
+			<div id="bio" class="text-center">Blog about programming, testing and life</div>
+
+			<div id="sidebar-links" class="text-center">
+				<a href="/about/">About</a>&ensp;&bull;&ensp;<a href="/projects/">Projects</a>
+			</div>
+
+			<div id="social" class="text-center">
+				<a href="mailto:biomaks@gmail.com" title="Email" class="icon fa fa-envelope"></a>
+				<a href="http://twitter.com/biomehanik" title="Twitter" class="icon fa fa-twitter"></a>
+				<a href="http://plus.google.com/+ErikKhalimov" title="Google+" class="icon fa fa-google-plus-square"></a>
+				<a href="http://github.com/biomaks" title="GitHub" class="icon fa fa-github"></a>
+				<a href="atom.xml" title="RSS" class="icon fa fa-rss"></a>
+			</div>
+
+			<hr id="sidebar-divider">
+			<a id="st" href="http://software-testing.ru/about/blogs" target="_blank"><img src="http://software-testing.ru/images/stru_blog_banner.gif" border="0" width="88" height="60" alt="Software-Testing.Ru" /></a>
+		</aside>
+
+		<article class="main-column">
+	<h1 class="title"><a href="/blog/2015/11/06/kak-podniat-svoi-vpn/" title="Permalink to Как поднять свой VPN">Как поднять свой VPN</a></h1>
+	<time class="date" datetime="2015-11-06 12:36:23+03:00">November 06, 2015</time>
+	<div class="content">
+		<p>Прошлый раз я во всю пел хвалебные оды хостингу Digitalocean, где помимо прочего я обещал рассказать как поднять на этом хостинге свой vpn сервер с помощью Docker. За чем нужен свой vpn? Это каждый решает сам для себя. Можно например посещать сайты, которые по каким либо причинам недоступны из той страны, где вы находитесь. Или вам необходимо притвориться чуваком с американским ip и т.д. Сразу скажу что установка и настройка не потребует каких либо специальных знаний, за исключением может быть, начальных знаний командной строки unix.</p>
+<p>Собственно мы поднимем с помощью docker виртуалку на котором будет крутиться наш openvpn сервер. Мы воспользуемся уже хорошо зарекомендовавшим себя образом <a href="https://github.com/jpetazzo/dockvpn">jpetazzo</a>. Первым делом вам понадобится учетная запись на digitalocean.com. Если вы заведете ее по моей <a href="https://www.digitalocean.com/?refcode=823012346b9c">реферальной ссылке</a>, то получите 10$ на счет, чего хватит минимум на 2 месяца работы vpn (Целых два! Халявных! Месяца! Карл!).</p>
+<p>Далее вам нужно создать свой droplet(так в digitalocean называют облачные виртуалки). Далее по шагам:</p>
+<ul>
+<li>Нажимаете большую зеленую кнопку "Create Droplet"</li>
+<li>Вводите имя дроплета (напр. 'my-openvpn')</li>
+<li>Выбираете размер дроплета. Самого маленького за $5 вполне достаточно.</li>
+<li>Выбираете регион где будет размещен ваш сервер (напр. New York, если нужен американский IP, или другой на выбор)</li>
+<li>Выбираете образ. Где переходите на закладку Applications и выбираете образ с предустановленным docker. Docker 1.9.0 on 14.04</li>
+<li>Нажимаете Create Droplet</li>
+</ul>
+<p>Ждете примерно минуту пока создается дроплет. После того как дроплет будет создан вам придет email, котором будет указан ip вашего вновь созданного дроплета и логин с паролем. Теперь наверно самое сложное, это зайти по ssh на ваш дроплет. Можно воспользоваться любым клиентом ssh и данными из пришедшего email. Либо на том же сайте digitalocean воспользоваться браузерной консолью (в разделе Access вашего дроплета, кнопка Console Access). Дальнейшие мои инструкции аналогичны как для первого способа, так и для второго. При первом входе вас попросят сменить пароль, поэтому запомните его. Если что, его можно будет сбросить через личный кабинет digitalocean.</p>
+<p>Собственно зайдя на дроплет в консоли вводите следующую команду:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre>CID=$(docker run -d --privileged -p 1194:1194/udp -p 443:443/tcp jpetazzo/dockvpn)
+</pre></div>
+</td></tr></table>
+<p>выглядит страшно, но, тот кто читал мои предыдущие статьи посвященные докеру, поймет :)
+Эта команда проработает какое-то время и сама завершится. 
+Далее запускаете контейнер следующей командой:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span class="x">docker run -t -i -p 8080:8080 --volumes-from </span><span class="p">$</span><span class="nv">CID</span><span class="x"> jpetazzo/dockvpn serveconfig</span>
+</pre></div>
+</td></tr></table>
+<p>это команда выдаст url типа <code>https://1.1.1.1:8080/</code> (у вас естественно будет другой). Имейте в виду, что пока работает выше указанна команда, пройдя по этому урлу вы сможете скачать файл конфигурации для вашего vpn клиента, поэтому не останавливайте ее пока не скачаете конфигурации на нужном количестве ваших устройств. </p>
+<p>Клиентов vpn много, я для mac использую Tunnelblick. Для windows, iOS, android можно посмотреть клиенты <a href="https://openvpn.net/">тут</a>.</p>
+<p>После того как скачали и установили конфигурации на клиенты vpn, работающую команду нужно остановить (<code>ctrl+c</code>). </p>
+<p>Да и напоминаю вам, что у созданного дроплета есть ограничение по трафику - 1000 Gb. Это очень много, но не безлимитно, посерфить послушать музыку и посмотреть кино, вам хватит точно.</p>
+	</div>
+
+	<div id="related-articles">
+		<a href="/blog/2015/10/10/khosting-dlia-testirovshchika/" id="prev-neighbour">Хостинг для тестировщика &raquo;</a>
+	</div>
+
+	<hr>
+
+	<!-- Disqus -->
+	<div id="disqus_thread"></div>
+	<script type="text/javascript">
+		var disqus_shortname = 'biomaks-github-io';
+		(function() {
+			var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+			dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+			(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+		})();
+	</script>
+			<hr>
+		</article>
+
+		<footer class="main-column">
+			<p>Powered by <a href="http://getpelican.com">Pelican</a> and <a href="http://pages.github.com">GitHub&nbsp;Pages</a>.</p>
+		</footer>
+	</div>
+
+	<!-- Google Analytics -->
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-46878829-1', '');
+		ga('send', 'pageview');
+	</script>
+
+	<!-- Yandex.Metrika counter -->
+	<script type="text/javascript">
+	(function (d, w, c) {
+	    (w[c] = w[c] || []).push(function() {
+	        try {
+	            w.yaCounter23571979 = new Ya.Metrika({id:23571979,
+	                    webvisor:true,
+	                    clickmap:true,
+	                    trackLinks:true,
+	                    accurateTrackBounce:true});
+	        } catch(e) { }
+	    });
+
+	    var n = d.getElementsByTagName("script")[0],
+	        s = d.createElement("script"),
+	        f = function () { n.parentNode.insertBefore(s, n); };
+	    s.type = "text/javascript";
+	    s.async = true;
+	    s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js";
+
+	    if (w.opera == "[object Opera]") {
+	        d.addEventListener("DOMContentLoaded", f, false);
+	    } else { f(); }
+	})(document, window, "yandex_metrika_callbacks");
+	</script>
+	<noscript><div><img src="//mc.yandex.ru/watch/23571979" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+	<!-- /Yandex.Metrika counter -->
+</body>
+</html>
