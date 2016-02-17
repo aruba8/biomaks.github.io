@@ -1,5 +1,10 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*- #
+
+
+###
+### INSTALL SASS!!!!! (sudo gem install sass)
+###
 from __future__ import unicode_literals
 
 AUTHOR = u'Erik'
