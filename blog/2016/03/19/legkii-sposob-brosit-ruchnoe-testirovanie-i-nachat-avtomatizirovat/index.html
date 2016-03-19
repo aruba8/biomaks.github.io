@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<!-- Basic Metas -->
+	<meta charset="utf-8">
+	<title>Легкий способ бросить ручное тестирование и начать автоматизировать | qa7.ru</title>
+	<meta name="description" content="Появлению этого поста способствовала беседа в приватном чате с одним из начинающих тестировщиков в нашем уютном чате для тестировщиков. Разговор начался с темы, что сделать чтобы стать автотестером. Оставим в стороне рассуждения на тему, что люди как правило еще руками не научились тестировать, а уже хотят автоматизированным тестированием заняться. И ...">
+	<meta name="author" content="Erik Khalimov">
+	<link rel="author" href="https://plus.google.com/+ErikKhalimov"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<!-- Twitter Cards and Open Graph -->
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:creator" content="@biomehanik">
+	<meta name="twitter:domain" content="">
+	<meta name="twitter:site" content="@biomehanik">
+	<meta property="og:title" content="Легкий способ бросить ручное тестирование и начать автоматизировать">
+	<meta property="og:description" content="Появлению этого поста способствовала беседа в приватном чате с одним из начинающих тестировщиков в нашем уютном чате для тестировщиков. Разговор начался с темы, что сделать чтобы стать автотестером. Оставим в стороне рассуждения на тему, что люди как правило еще руками не научились тестировать, а уже хотят автоматизированным тестированием заняться. И ...">
+	<meta property="og:image" content="http://qa7.ru/theme/images/avatar512.png">
+	<meta property="og:type" content="article">
+	<meta property="og:url" content="http://qa7.ru/blog/2016/03/19/legkii-sposob-brosit-ruchnoe-testirovanie-i-nachat-avtomatizirovat/">
+
+	<!-- Stylesheets and Web Fonts -->
+	<link href="/theme/style.min.css" rel="stylesheet">
+	<link href="//fonts.googleapis.com/css?family=Raleway:400,600|Source+Code+Pro" rel="stylesheet" type="text/css">
+	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
+	<!-- Favicons -->
+	<link rel="apple-touch-icon" href="/theme/images/apple-touch-icon.png">
+	<link rel="apple-touch-icon" sizes="57x57" href="/theme/images/apple-touch-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="/theme/images/apple-touch-icon-60x60.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="/theme/images/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="/theme/images/apple-touch-icon-76x76.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="/theme/images/apple-touch-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="/theme/images/apple-touch-icon-120x120.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="/theme/images/apple-touch-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="/theme/images/apple-touch-icon-152x152.png">
+
+	<link rel="icon" type="image/png" href="/theme/images/favicon-16x16.png" sizes="16x16">
+	<link rel="icon" type="image/png" href="/theme/images/favicon-32x32.png" sizes="32x32">
+	<link rel="icon" type="image/png" href="/theme/images/favicon-96x96.png" sizes="96x96">
+	<link rel="icon" type="image/png" href="/theme/images/favicon-160x160.png" sizes="160x160">
+	<link rel="icon" type="image/png" href="/theme/images/favicon-196x196.png" sizes="196x196">
+
+	<meta name="application-name" content="qa7.ru">
+	<meta name="msapplication-TileColor" content="#da532c">
+	<meta name="msapplication-TileImage" content="theme/images/mstile-144x144.png">
+	<meta name="msapplication-square70x70logo" content="theme/images/mstile-small.png">
+	<meta name="msapplication-square150x150logo" content="theme/images/mstile-medium.png">
+	<meta name="msapplication-wide310x150logo" content="theme/images/mstile-wide.png">
+	<meta name="msapplication-square310x310logo" content="theme/images/mstile-large.png">
+
+	<!--[if lt IE 9]>
+	<script src="/theme/js/html5shiv.min.js"></script>
+	<script src="/theme/js/respond.min.js"></script>
+	<![endif]-->
+</head>
+
+<body>
+	<div class="container">
+		<aside id="sidebar" class="side-column">
+			<a href="/"><img id="avatar" alt="Site Avatar" src="/theme/images/avatar.png"></a>
+			<div id="logo" class="text-center"><a href="/">qa7.ru</a></div>
+			<div id="bio" class="text-center">Blog about programming, testing and life</div>
+
+			<div id="sidebar-links" class="text-center">
+				<a href="/about/">About</a>&ensp;&bull;&ensp;<a href="/projects/">Projects</a>
+			</div>
+
+			<div id="social" class="text-center">
+				<a href="mailto:biomaks@gmail.com" title="Email" class="icon fa fa-envelope"></a>
+				<a href="http://twitter.com/biomehanik" title="Twitter" class="icon fa fa-twitter"></a>
+				<a href="http://plus.google.com/+ErikKhalimov" title="Google+" class="icon fa fa-google-plus-square"></a>
+				<a href="http://github.com/biomaks" title="GitHub" class="icon fa fa-github"></a>
+				<a href="atom.xml" title="RSS" class="icon fa fa-rss"></a>
+			</div>
+
+			<hr id="sidebar-divider">
+			<a id="st" href="http://software-testing.ru/about/blogs" target="_blank"><img src="http://software-testing.ru/images/stru_blog_banner.gif" border="0" width="88" height="60" alt="Software-Testing.Ru" /></a>
+		</aside>
+
+		<article class="main-column">
+	<h1 class="title"><a href="/blog/2016/03/19/legkii-sposob-brosit-ruchnoe-testirovanie-i-nachat-avtomatizirovat/" title="Permalink to Легкий способ бросить ручное тестирование и начать автоматизировать">Легкий способ бросить ручное тестирование и начать автоматизировать</a></h1>
+	<time class="date" datetime="2016-03-19 13:25:37+03:00">March 19, 2016</time>
+	<div class="content">
+		<p>Появлению этого поста способствовала беседа в приватном чате с одним из начинающих тестировщиков в нашем уютном чате для тестировщиков. Разговор начался с темы, что сделать чтобы стать автотестером. Оставим в стороне рассуждения на тему, что люди как правило еще руками не научились тестировать, а уже хотят автоматизированным тестированием заняться. И что же их на автоматизацию тянет будто там медом намазано. Я же просто поделился с ним как это я начал писать автотесты. Я не самый большой специалист в этом деле, но когда-то и я не умел ни программировать ни писать автотесты. Собственно это не самый (наверное) лучший способ, но наверняка самый действенный и на мой взгляд должен привести к положительному результату. Чем собственно я и хочу сегодня с вами поделиться.</p>
+<p>Давным-давно, я даже не вспомню точно когда тестируя в 10й раз одну и туже функциональность каждую неделю, я задумался, что не плохо бы это дело автоматизировать, так как ничего сложного (как я думал на тот момент) в этом не было. Поговорив об этом с лидом разработчиков (он за одно руководил и тестированием), получил в ответ, что учить тебя автоматизации времени нет, выделять на это разработчиков позволить не можем, и вообще ты ручным тестированием должен заниматься так как тебя для этого и нанимали. Посмотрев кучу видео на youtube и прочитав несколько книг по java в свободное от работы время, это все заняло в целом 2-3 месяца, и усвоив базовые концепции языка я используя еще тот selenium 1.0 написал примерно 30 тестов оставаясь на работе дольше на полчаса-час, что покрыло примерно 80% от набора тест-кейсов который я автоматизировал. Насколько я помню проблема тогда была не в количестве тестов, а в количестве вариантов данных для этих тестов. Собственно в экономии времени на прогон тестов с разными вариантами данных и была вся фишка. Подойдя с этими тестами к лиду разработчиков запустив их и указав на то количество времени которое мы экономим наглядно он признал данное дело перспективным, и покурив над ними полчаса мы привели их к более менее приемлемому виду. Эти тесты в последствии были внедрены в CI цикл нашей разработки. Я же, уже официально, начал получать задачи на автоматизацию некоторых перспективны тестовых сценариев.</p>
+<p>Это не избавило меня на 100% от ручного тестирования, но избавило от нудных проверок одного и того же, но с разными данными. Это был отличный опыт, так как я стал лучше понимать процесс разработки. Пришло понимание, что если просто прийти и сказать, что хочу автоматизировать, то скорее всего ничего не получится. Что автоматизацию на проекте нужно обосновать, и обосновать результатом, а не сферическими обещаниями в вакууме. Мне пришлось вложить немалого своего времени в освоение программирования, тестовых фреймворков и кучу других вещей. Но в итоге, я получил опыт в автоматизации и следующая работа была целиком и полностью посвящена автоматизированному тестированию. </p>
+<p>Собственно это и был мой совет начинающему, начать автоматизировать самому. В процессе возникнут некоторые сложности, преодолевая которые волей-неволей придешь к выводу, что хорошо и что плохо. Да и нужно ли это автоматизирование, это же так сложно, столько всего нужно знать и уметь.</p>
+	</div>
+
+	<div id="related-articles">
+		<a href="/blog/2016/01/31/instrument-dlia-avtomatizatsii-testirovaniia-mobilnykh-prilozhenii-appium/" id="prev-neighbour">Инструмент для автоматизации тестирования мобильных приложений Appium &raquo;</a>
+	</div>
+
+	<hr>
+
+	<!-- Disqus -->
+	<div id="disqus_thread"></div>
+	<script type="text/javascript">
+		var disqus_shortname = 'biomaks-github-io';
+		(function() {
+			var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+			dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+			(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+		})();
+	</script>
+			<hr>
+		</article>
+
+		<footer class="main-column">
+			<p>Powered by <a href="http://getpelican.com">Pelican</a> and <a href="http://pages.github.com">GitHub&nbsp;Pages</a>.</p>
+		</footer>
+	</div>
+
+	<!-- Google Analytics -->
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-46878829-1', '');
+		ga('send', 'pageview');
+	</script>
+
+	<!-- Yandex.Metrika counter -->
+	<script type="text/javascript">
+	(function (d, w, c) {
+	    (w[c] = w[c] || []).push(function() {
+	        try {
+	            w.yaCounter23571979 = new Ya.Metrika({id:23571979,
+	                    webvisor:true,
+	                    clickmap:true,
+	                    trackLinks:true,
+	                    accurateTrackBounce:true});
+	        } catch(e) { }
+	    });
+
+	    var n = d.getElementsByTagName("script")[0],
+	        s = d.createElement("script"),
+	        f = function () { n.parentNode.insertBefore(s, n); };
+	    s.type = "text/javascript";
+	    s.async = true;
+	    s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js";
+
+	    if (w.opera == "[object Opera]") {
+	        d.addEventListener("DOMContentLoaded", f, false);
+	    } else { f(); }
+	})(document, window, "yandex_metrika_callbacks");
+	</script>
+	<noscript><div><img src="//mc.yandex.ru/watch/23571979" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+	<!-- /Yandex.Metrika counter -->
+</body>
+</html>
