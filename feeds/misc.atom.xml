@@ -1,5 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>qa7.ru</title><link href="http://qa7.ru/" rel="alternate"></link><link href="http://qa7.ru/feeds/misc.atom.xml" rel="self"></link><id>http://qa7.ru/</id><updated>2016-04-28T20:49:43+03:00</updated><entry><title>OCA Java SE 8 Programmer I</title><link href="http://qa7.ru/blog/2016/04/28/oca-java-se-8-programmer-i/" rel="alternate"></link><updated>2016-04-28T20:49:43+03:00</updated><author><name>Erik</name></author><id>tag:qa7.ru,2016-04-28:blog/2016/04/28/oca-java-se-8-programmer-i/</id><summary type="html">&lt;p&gt;Всем привет! &lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>qa7.ru</title><link href="http://qa7.ru/" rel="alternate"></link><link href="http://qa7.ru/feeds/misc.atom.xml" rel="self"></link><id>http://qa7.ru/</id><updated>2016-05-02T20:55:14+03:00</updated><entry><title>Подготовка к OCA chapter 1</title><link href="http://qa7.ru/blog/2016/05/02/podgotovka-k-oca-chapter-1/" rel="alternate"></link><updated>2016-05-02T20:55:14+03:00</updated><author><name>Erik</name></author><id>tag:qa7.ru,2016-05-02:blog/2016/05/02/podgotovka-k-oca-chapter-1/</id><summary type="html">&lt;p&gt;Собственно неделя прошла, часть первая книги &lt;a href="http://www.amazon.ca/OCA-Certified-Associate-Programmer-1Z0-808-ebook/dp/B00R04DF3I?ie=UTF8&amp;amp;qid=1462240625&amp;amp;ref_=tmm_kin_swatch_0&amp;amp;sr=8-1"&gt;OCA: Oracle Certified Associate Java SE 8 Programmer I Study Guide: Exam 1Z0-808&lt;/a&gt; прочитана и переварена. Глава называется Java Building Blocks &lt;/p&gt;
+&lt;p&gt;Как и во многих других сертификационных экзаменах нужно знать много мелочей. Некоторые мелочи порой лучше даже не знать, так как их знание не привносит никакой пользы, а порой даже вредно и в культурных местах за их использование по рукам бьют. Кто не согласен со мной, готов подискутировать. &lt;/p&gt;
+&lt;p&gt;Вот что нужно (необходимо, но недостаточно) знать для успешного прохождения экзамена из главы первой вышеуказанной книги:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;Public&lt;/code&gt; вполне себе валидный идентификатор, т.к. java регистрочуствительный язык&lt;/li&gt;
+&lt;li&gt;есть задания, где нужно указать в куске кода на какой строке сгенерируется &lt;code&gt;compile error&lt;/code&gt;. Собственно нужно указать на все строки где это может произойти, а не только там где кажется это логичным. Например тут:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;table class="codehilitetable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
+2
+3
+4
+5
+6&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="kt"&gt;short&lt;/span&gt; &lt;span class="n"&gt;numPets&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;numGrains&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mf"&gt;5.6&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+&lt;span class="mi"&gt;6&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;String&lt;/span&gt; &lt;span class="n"&gt;name&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;"Scruffy"&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+&lt;span class="mi"&gt;7&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;numPets&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;length&lt;/span&gt;&lt;span class="o"&gt;();&lt;/span&gt;
+&lt;span class="mi"&gt;8&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;numGrains&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;length&lt;/span&gt;&lt;span class="o"&gt;();&lt;/span&gt;
+&lt;span class="mi"&gt;9&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;length&lt;/span&gt;&lt;span class="o"&gt;();&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;p&gt;нужно указать на 5, 7, 8 строки, а не только на 5.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;следущее тоже нужно знать, но насколько это применимо на практике спорный вопрос:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;table class="codehilitetable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
+2
+3&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;amount&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="n"&gt;b101&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+&lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;amount&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mh"&gt;0xE&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+&lt;span class="kt"&gt;double&lt;/span&gt; &lt;span class="n"&gt;amount&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mh"&gt;0xE&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;p&gt;подобные объявления компилятор проглотит и не подавится.&lt;/p&gt;
+&lt;p&gt;Плавно перехожу на следующую главу Operators and Statements&lt;/p&gt;</summary></entry><entry><title>OCA Java SE 8 Programmer I</title><link href="http://qa7.ru/blog/2016/04/28/oca-java-se-8-programmer-i/" rel="alternate"></link><updated>2016-04-28T20:49:43+03:00</updated><author><name>Erik</name></author><id>tag:qa7.ru,2016-04-28:blog/2016/04/28/oca-java-se-8-programmer-i/</id><summary type="html">&lt;p&gt;Всем привет! &lt;/p&gt;
 &lt;p&gt;Тут в Канаде, руководство предложило сдать сертификационный экзамен Oracle на выбор. У меня уже есть сертификат Java SCJP 1.6 еще от SUN до того как Oracle купила их, и он до сих пор мне так и не пригодился. Так красивости ради валяется где-то бумажка, буду внукам показывать на пенсии. Цель данной активности, освежить старые знания и получить новые, а так же систематизировать их (про удовлетворение руководства промолчим). Собственно условие только одно, получить сертификат до конца этого года, в этом случае расходы на его получение будут оплачены. OK sir! Сказал я и засучил рукава. Сдавать буду экзамен под кодовым номером 1Z0-808 Java SE 8 Programmer I или OCA Java SE 8 Programmer I. Но не суть. Прошлая сдача экзамена была достаточно давно, и с тех пор многое изменилось, язык Java в том числе. И не хило изменился скажу я вам. И откровенно говоря я до сих пор плаваю в некоторых местах Java 8, таких как стримы, лямбды и новом Date API. Ну чтож время у меня вроде есть эти части подкачать, вспомнить нюансы и подготовиться. Экзамен длиться 150 минут (2,5 часа), состоит из 77 вопросов формата Multiple Choice. Чтобы сдать экзамен необходимо ответить правильно на 65% вопросов.&lt;/p&gt;
 &lt;p&gt;Собственно план у меня следующий:&lt;/p&gt;
 &lt;ul&gt;
