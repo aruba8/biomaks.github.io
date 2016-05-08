@@ -5,7 +5,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://qa7.ru/</loc>
-<lastmod>2016-05-07T19:16:02-00:00</lastmod>
+<lastmod>2016-05-07T19:17:43-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -25,8 +25,8 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-<loc>http://qa7.ru/blog/2016/05/02/podgotovka-k-oca-chapter-1/</loc>
-<lastmod>2016-05-02T20:55:14+03:00</lastmod>
+<loc>http://qa7.ru/blog/2016/05/07/podgotovka-k-oca-chapter-1/</loc>
+<lastmod>2016-05-07T19:17:14+03:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
@@ -285,7 +285,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://qa7.ru/author/erik.html</loc>
-<lastmod>2016-05-02T20:55:14+02:30</lastmod>
+<lastmod>2016-05-07T19:17:14+02:30</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
