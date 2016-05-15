@@ -1,5 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>qa7.ru</title><link href="http://qa7.ru/" rel="alternate"></link><link href="http://qa7.ru/feeds/misc.atom.xml" rel="self"></link><id>http://qa7.ru/</id><updated>2016-05-07T19:17:14+03:00</updated><entry><title>Подготовка к OCA chapter 1</title><link href="http://qa7.ru/blog/2016/05/07/podgotovka-k-oca-chapter-1/" rel="alternate"></link><updated>2016-05-07T19:17:14+03:00</updated><author><name>Erik</name></author><id>tag:qa7.ru,2016-05-07:blog/2016/05/07/podgotovka-k-oca-chapter-1/</id><summary type="html">&lt;p&gt;Собственно неделя прошла, часть первая книги &lt;a href="http://www.amazon.ca/OCA-Certified-Associate-Programmer-1Z0-808-ebook/dp/B00R04DF3I?ie=UTF8&amp;amp;qid=1462240625&amp;amp;ref_=tmm_kin_swatch_0&amp;amp;sr=8-1"&gt;OCA: Oracle Certified Associate Java SE 8 Programmer I Study Guide: Exam 1Z0-808&lt;/a&gt; прочитана и переварена. Глава называется Java Building Blocks &lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>qa7.ru</title><link href="http://qa7.ru/" rel="alternate"></link><link href="http://qa7.ru/feeds/misc.atom.xml" rel="self"></link><id>http://qa7.ru/</id><updated>2016-05-15T15:25:03+03:00</updated><entry><title>Подготовка к OCA chapter 2</title><link href="http://qa7.ru/blog/2016/05/15/podgotovka-k-oca-chapter-2/" rel="alternate"></link><updated>2016-05-15T15:25:03+03:00</updated><author><name>Erik</name></author><id>tag:qa7.ru,2016-05-15:blog/2016/05/15/podgotovka-k-oca-chapter-2/</id><summary type="html">&lt;p&gt;Продолжается подготовка к OCA. На этой неделе грыз главу вторую книги &lt;a href="http://www.amazon.ca/OCA-Certified-Associate-Programmer-1Z0-808-ebook/dp/B00R04DF3I?ie=UTF8&amp;amp;qid=1462240625&amp;amp;ref_=tmm_kin_swatch_0&amp;amp;sr=8-1"&gt;OCA: Oracle Certified Associate Java SE 8 Programmer I Study Guide: Exam 1Z0-808&lt;/a&gt; под названием: Operators and Statements.&lt;/p&gt;
+&lt;p&gt;На очереди следующий набор странностей, о которых нужно знать  и поскорее забыть после экзамена :) &lt;/p&gt;
+&lt;p&gt;если вы думаете, что следующее выражение некорректно, то вы ошибаетесь:&lt;/p&gt;
+&lt;table class="codehilitetable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
+2&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+&lt;span class="n"&gt;System&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;out&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;println&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt; &lt;span class="o"&gt;?&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt; &lt;span class="mi"&gt;4&lt;/span&gt; &lt;span class="o"&gt;?&lt;/span&gt; &lt;span class="mi"&gt;10&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;8&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;7&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;p&gt;насчет следующего скорее всего тоже:&lt;/p&gt;
+&lt;table class="codehilitetable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
+2&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="kc"&gt;false&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="n"&gt;System&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;out&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;println&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s"&gt;"f"&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
+&lt;span class="k"&gt;else&lt;/span&gt; &lt;span class="n"&gt;System&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;out&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;println&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s"&gt;"Failure"&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;p&gt;слышали что-нибудь про Numeric promotion? Нет? Тогда профуканый вопрос на экзамене станет для вас сюрпризом, и получите неизбежную ошибку компилятора в следующем случае:&lt;/p&gt;
+&lt;table class="codehilitetable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
+2
+3&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="kt"&gt;byte&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+&lt;span class="kt"&gt;byte&lt;/span&gt; &lt;span class="n"&gt;y&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;15&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+&lt;span class="kt"&gt;byte&lt;/span&gt; &lt;span class="n"&gt;z&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;y&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;p&gt;следующий пример тоже относится к Numeric promotion, он не скомпилируется:&lt;/p&gt;
+&lt;table class="codehilitetable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
+2
+3&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="kt"&gt;long&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+&lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;y&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+&lt;span class="n"&gt;y&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;y&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;p&gt;а вот так скомпилируется:&lt;/p&gt;
+&lt;table class="codehilitetable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
+2
+3&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="kt"&gt;long&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+&lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;y&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+&lt;span class="n"&gt;y&lt;/span&gt; &lt;span class="o"&gt;*=&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;p&gt;Удивлены? Я тоже. 
+Еще в Java можно так:&lt;/p&gt;
+&lt;table class="codehilitetable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
+2
+3
+4&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="kt"&gt;boolean&lt;/span&gt; &lt;span class="n"&gt;b&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kc"&gt;false&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;b&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="kc"&gt;true&lt;/span&gt;&lt;span class="o"&gt;){&lt;/span&gt;
+&lt;span class="o"&gt;...&lt;/span&gt;
+&lt;span class="o"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;p&gt;Едем дальше. На очереди Core Java API.&lt;/p&gt;</summary></entry><entry><title>Подготовка к OCA chapter 1</title><link href="http://qa7.ru/blog/2016/05/07/podgotovka-k-oca-chapter-1/" rel="alternate"></link><updated>2016-05-07T19:17:14+03:00</updated><author><name>Erik</name></author><id>tag:qa7.ru,2016-05-07:blog/2016/05/07/podgotovka-k-oca-chapter-1/</id><summary type="html">&lt;p&gt;Собственно неделя прошла, часть первая книги &lt;a href="http://www.amazon.ca/OCA-Certified-Associate-Programmer-1Z0-808-ebook/dp/B00R04DF3I?ie=UTF8&amp;amp;qid=1462240625&amp;amp;ref_=tmm_kin_swatch_0&amp;amp;sr=8-1"&gt;OCA: Oracle Certified Associate Java SE 8 Programmer I Study Guide: Exam 1Z0-808&lt;/a&gt; прочитана и переварена. Глава называется Java Building Blocks &lt;/p&gt;
 &lt;p&gt;Как и во многих других сертификационных экзаменах нужно знать много мелочей. Некоторые мелочи порой лучше даже не знать, так как их знание не привносит никакой пользы, а порой даже вредно и в культурных местах за их использование по рукам бьют. Кто не согласен со мной, готов подискутировать. &lt;/p&gt;
 &lt;p&gt;Вот что нужно (необходимо, но недостаточно) знать для успешного прохождения экзамена из главы первой вышеуказанной книги:&lt;/p&gt;
 &lt;ul&gt;
