@@ -1,5 +1,120 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>qa7.ru</title><link href="http://qa7.ru/" rel="alternate"></link><link href="http://qa7.ru/feeds/misc.atom.xml" rel="self"></link><id>http://qa7.ru/</id><updated>2016-05-15T15:25:03+03:00</updated><entry><title>Подготовка к OCA chapter 2</title><link href="http://qa7.ru/blog/2016/05/15/podgotovka-k-oca-chapter-2/" rel="alternate"></link><updated>2016-05-15T15:25:03+03:00</updated><author><name>Erik</name></author><id>tag:qa7.ru,2016-05-15:blog/2016/05/15/podgotovka-k-oca-chapter-2/</id><summary type="html">&lt;p&gt;Продолжается подготовка к OCA. На этой неделе грыз главу вторую книги &lt;a href="http://www.amazon.ca/OCA-Certified-Associate-Programmer-1Z0-808-ebook/dp/B00R04DF3I?ie=UTF8&amp;amp;qid=1462240625&amp;amp;ref_=tmm_kin_swatch_0&amp;amp;sr=8-1"&gt;OCA: Oracle Certified Associate Java SE 8 Programmer I Study Guide: Exam 1Z0-808&lt;/a&gt; под названием: Operators and Statements.&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>qa7.ru</title><link href="http://qa7.ru/" rel="alternate"></link><link href="http://qa7.ru/feeds/misc.atom.xml" rel="self"></link><id>http://qa7.ru/</id><updated>2016-08-15T20:25:03+03:00</updated><entry><title>Selenide пост</title><link href="http://qa7.ru/blog/2016/08/15/selenide-post/" rel="alternate"></link><updated>2016-08-15T20:25:03+03:00</updated><author><name>Erik</name></author><id>tag:qa7.ru,2016-08-15:blog/2016/08/15/selenide-post/</id><summary type="html">&lt;p&gt;Как-то так получилось, что я обошел вниманием в этом блоге замечательную библиотеку для разработки UI автотестов &lt;a href="http://selenide.org/"&gt;Selenide&lt;/a&gt;. Сим постом исправляю недоразумение. Данная библиотека по сути обертка над Webdriver, разрабатывается она под флагом компании Codeborne, Андреем Солнцевым. Библиотека open source, под лицензией MIT. Пул реквесты принимаются, если по делу, то без проблем. Так что если есть, что добавить своего, то всегда пожалуйста. Собственно &lt;code&gt;Selenide&lt;/code&gt; позволяет легко и не принужденно работать с локаторами, элементами, ожиданиями и т.д. При этом позволяет работать с базовым webdriver, если вам по какой-то причине вдруг не хватает этого. &lt;/p&gt;
+&lt;p&gt;Если вы никогда не писали тесты используя &lt;code&gt;Selenium/Webdriver&lt;/code&gt;, я настоятельно рекомендую начать пользоваться ими посредством &lt;code&gt;Selenide&lt;/code&gt;.
+Если вы уберзакостенелый пользователь &lt;code&gt;Selenium/Webdriver&lt;/code&gt; и еще не используете &lt;code&gt;Selenide&lt;/code&gt;, я еще более рекомендую начать им пользоваться. 
+Первым это позволит начать писать тесты не отвлекаясь на реализацию своих велосипедов(ожидания, проверки и т.д.) и сэкономит кучу времени и нервов, вторым же это позволит наконец-то писать лаконичные, стабильные тесты и по делу.&lt;/p&gt;
+&lt;p&gt;Итак чем же &lt;code&gt;Selenide&lt;/code&gt; так прекрасен? Давайте по порядку.&lt;/p&gt;
+&lt;h2&gt;Ожидания&lt;/h2&gt;
+&lt;p&gt;Сколько копий сломано об решении этой проблемы! Я сам написал с десяток, наверно, раз различные обертки которые реализуют ожидание чего-то и как-то. Теперь это есть в Selenide из коробки, и не нужно задумываться об этом.&lt;/p&gt;
+&lt;table class="codehilitetable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt; 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="c1"&gt;//Webdriver&lt;/span&gt;
+&lt;span class="n"&gt;FluentWait&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;By&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;fluentWait&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="n"&gt;FluentWait&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;By&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;(&lt;/span&gt;&lt;span class="n"&gt;By&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;tagName&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s"&gt;"TEXTAREA"&lt;/span&gt;&lt;span class="o"&gt;));&lt;/span&gt;
+&lt;span class="n"&gt;fluentWait&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;pollingEvery&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;100&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="n"&gt;TimeUnit&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;MILLISECONDS&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
+&lt;span class="n"&gt;fluentWait&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;withTimeout&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1000&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="n"&gt;TimeUnit&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;MILLISECONDS&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
+&lt;span class="n"&gt;fluentWait&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;until&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="n"&gt;Predicate&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;By&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;()&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
+    &lt;span class="kd"&gt;public&lt;/span&gt; &lt;span class="kt"&gt;boolean&lt;/span&gt; &lt;span class="nf"&gt;apply&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;By&lt;/span&gt; &lt;span class="n"&gt;by&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
+        &lt;span class="k"&gt;try&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
+            &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;browser&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;findElement&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;by&lt;/span&gt;&lt;span class="o"&gt;).&lt;/span&gt;&lt;span class="na"&gt;isDisplayed&lt;/span&gt;&lt;span class="o"&gt;();&lt;/span&gt;
+        &lt;span class="o"&gt;}&lt;/span&gt; &lt;span class="k"&gt;catch&lt;/span&gt; &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;NoSuchElementException&lt;/span&gt; &lt;span class="n"&gt;ex&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
+            &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="kc"&gt;false&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+        &lt;span class="o"&gt;}&lt;/span&gt;
+    &lt;span class="o"&gt;}&lt;/span&gt;
+&lt;span class="o"&gt;});&lt;/span&gt;
+&lt;span class="n"&gt;assertEquals&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s"&gt;"John"&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="n"&gt;browser&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;findElement&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;By&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;tagName&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s"&gt;"TEXTAREA"&lt;/span&gt;&lt;span class="o"&gt;)).&lt;/span&gt;&lt;span class="na"&gt;getAttribute&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s"&gt;"value"&lt;/span&gt;&lt;span class="o"&gt;));&lt;/span&gt;
+
+
+&lt;span class="c1"&gt;//Selenide&lt;/span&gt;
+&lt;span class="n"&gt;$&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s"&gt;"TEXTAREA"&lt;/span&gt;&lt;span class="o"&gt;).&lt;/span&gt;&lt;span class="na"&gt;shouldHave&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;value&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s"&gt;"John"&lt;/span&gt;&lt;span class="o"&gt;));&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;h2&gt;Удобные методы работы с элементами.&lt;/h2&gt;
+&lt;p&gt;Вы только сравните:&lt;/p&gt;
+&lt;p&gt;доступ к элементам:&lt;/p&gt;
+&lt;table class="codehilitetable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
+2
+3
+4
+5&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="c1"&gt;// getting element Webdriver&lt;/span&gt;
+&lt;span class="n"&gt;driver&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;findElement&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;By&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;id&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s"&gt;"customerContainer"&lt;/span&gt;&lt;span class="o"&gt;));&lt;/span&gt;
+
+&lt;span class="c1"&gt;// getting element Selenide&lt;/span&gt;
+&lt;span class="n"&gt;$&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s"&gt;"#customerContainer"&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;p&gt;проверка на наличие текста:&lt;/p&gt;
+&lt;table class="codehilitetable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
+2
+3
+4
+5&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="c1"&gt;//Webdriver&lt;/span&gt;
+&lt;span class="n"&gt;assertEquals&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s"&gt;"Customer"&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="n"&gt;driver&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;findElement&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;By&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;id&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s"&gt;"customerContainer"&lt;/span&gt;&lt;span class="o"&gt;)).&lt;/span&gt;&lt;span class="na"&gt;getText&lt;/span&gt;&lt;span class="o"&gt;());&lt;/span&gt;
+
+&lt;span class="c1"&gt;//Selenide&lt;/span&gt;
+&lt;span class="n"&gt;$&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s"&gt;"#customerContainer"&lt;/span&gt;&lt;span class="o"&gt;).&lt;/span&gt;&lt;span class="na"&gt;shouldHave&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;text&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s"&gt;"Customer"&lt;/span&gt;&lt;span class="o"&gt;));&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;h2&gt;Скриншоты&lt;/h2&gt;
+&lt;p&gt;которые снимаются как падает тест или в нужном вам месте:&lt;/p&gt;
+&lt;table class="codehilitetable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;takeScreenShot&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s"&gt;"my-test-case"&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;h2&gt;Conditions&lt;/h2&gt;
+&lt;p&gt;хрен знает как перевести правильно (условия?), но штука очень удобная, посмотрите:&lt;/p&gt;
+&lt;table class="codehilitetable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt; 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;$&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="err"&gt;“&lt;/span&gt;&lt;span class="n"&gt;input&lt;/span&gt;&lt;span class="err"&gt;”&lt;/span&gt;&lt;span class="o"&gt;).&lt;/span&gt;&lt;span class="na"&gt;shouldBe&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;visible&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
+&lt;span class="n"&gt;$&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="err"&gt;“&lt;/span&gt;&lt;span class="n"&gt;input&lt;/span&gt;&lt;span class="err"&gt;”&lt;/span&gt;&lt;span class="o"&gt;).&lt;/span&gt;&lt;span class="na"&gt;shouldBe&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;readonly&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
+&lt;span class="n"&gt;$&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="err"&gt;“&lt;/span&gt;&lt;span class="n"&gt;input&lt;/span&gt;&lt;span class="err"&gt;”&lt;/span&gt;&lt;span class="o"&gt;).&lt;/span&gt;&lt;span class="na"&gt;shouldHave&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="err"&gt;“&lt;/span&gt;&lt;span class="n"&gt;fname&lt;/span&gt;&lt;span class="err"&gt;”&lt;/span&gt;&lt;span class="o"&gt;));&lt;/span&gt;
+&lt;span class="n"&gt;$&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="err"&gt;“&lt;/span&gt;&lt;span class="n"&gt;input&lt;/span&gt;&lt;span class="err"&gt;”&lt;/span&gt;&lt;span class="o"&gt;).&lt;/span&gt;&lt;span class="na"&gt;shouldHave&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;value&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="err"&gt;“&lt;/span&gt;&lt;span class="n"&gt;John&lt;/span&gt;&lt;span class="err"&gt;”&lt;/span&gt;&lt;span class="o"&gt;))&lt;/span&gt;
+&lt;span class="n"&gt;$&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="err"&gt;“#&lt;/span&gt;&lt;span class="n"&gt;input&lt;/span&gt;&lt;span class="err"&gt;”&lt;/span&gt;&lt;span class="o"&gt;).&lt;/span&gt;&lt;span class="na"&gt;shouldHave&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;type&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="err"&gt;“&lt;/span&gt;&lt;span class="n"&gt;checkbox&lt;/span&gt;&lt;span class="err"&gt;”&lt;/span&gt;&lt;span class="o"&gt;))&lt;/span&gt;
+
+&lt;span class="c1"&gt;//and more&lt;/span&gt;
+&lt;span class="n"&gt;options&lt;/span&gt;
+&lt;span class="nf"&gt;cssClass&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;String&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;focused&lt;/span&gt;
+&lt;span class="n"&gt;enabled&lt;/span&gt;
+&lt;span class="n"&gt;disabled&lt;/span&gt;
+&lt;span class="n"&gt;selected&lt;/span&gt;
+&lt;span class="nf"&gt;matchText&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;String&lt;/span&gt; &lt;span class="n"&gt;regex&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;text&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;String&lt;/span&gt; &lt;span class="n"&gt;substring&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;exactText&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;String&lt;/span&gt; &lt;span class="n"&gt;wholeText&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;textCaseSensitive&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;String&lt;/span&gt; &lt;span class="n"&gt;substring&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;exactTextCaseSensitive&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;String&lt;/span&gt; &lt;span class="n"&gt;wholeText&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;p&gt;Если вы вдруг пользуетесь &lt;code&gt;C#&lt;/code&gt;, то есть пока неполный, но вполне работоспособный порт &lt;code&gt;Selenide&lt;/code&gt; на C#. Найти его можно &lt;a href="https://github.com/yashaka/NSelene"&gt;тут&lt;/a&gt;. Разрабатывает его Яков Крамаренко.&lt;/p&gt;
+&lt;p&gt;Кстати, если вы еще не в курсе, то у нас есть прекрасный чатик тестировщиков в слаке, о котором я &lt;a href="/blog/2015/12/18/izvinitelnyi/"&gt;рассказывал&lt;/a&gt; недавно. В этом чате есть канал посвященный &lt;code&gt;Selenide&lt;/code&gt; в котором обитают и сами разработчики как &lt;code&gt;Selenide&lt;/code&gt; так и &lt;code&gt;NSelene&lt;/code&gt;. Помимо этого та есть еще куча интересных каналов и людей. Welcome!&lt;/p&gt;</summary></entry><entry><title>Подготовка к OCA chapter 2</title><link href="http://qa7.ru/blog/2016/05/15/podgotovka-k-oca-chapter-2/" rel="alternate"></link><updated>2016-05-15T15:25:03+03:00</updated><author><name>Erik</name></author><id>tag:qa7.ru,2016-05-15:blog/2016/05/15/podgotovka-k-oca-chapter-2/</id><summary type="html">&lt;p&gt;Продолжается подготовка к OCA. На этой неделе грыз главу вторую книги &lt;a href="http://www.amazon.ca/OCA-Certified-Associate-Programmer-1Z0-808-ebook/dp/B00R04DF3I?ie=UTF8&amp;amp;qid=1462240625&amp;amp;ref_=tmm_kin_swatch_0&amp;amp;sr=8-1"&gt;OCA: Oracle Certified Associate Java SE 8 Programmer I Study Guide: Exam 1Z0-808&lt;/a&gt; под названием: Operators and Statements.&lt;/p&gt;
 &lt;p&gt;На очереди следующий набор странностей, о которых нужно знать  и поскорее забыть после экзамена :) &lt;/p&gt;
 &lt;p&gt;если вы думаете, что следующее выражение некорректно, то вы ошибаетесь:&lt;/p&gt;
 &lt;table class="codehilitetable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
