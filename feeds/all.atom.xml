@@ -1,5 +1,119 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>qa7.ru</title><link href="http://qa7.ru/" rel="alternate"></link><link href="http://qa7.ru/feeds/all.atom.xml" rel="self"></link><id>http://qa7.ru/</id><updated>2016-08-15T20:25:03+03:00</updated><entry><title>Selenide пост</title><link href="http://qa7.ru/blog/2016/08/15/selenide-post/" rel="alternate"></link><updated>2016-08-15T20:25:03+03:00</updated><author><name>Erik</name></author><id>tag:qa7.ru,2016-08-15:blog/2016/08/15/selenide-post/</id><summary type="html">&lt;p&gt;Как-то так получилось, что я обошел вниманием в этом блоге замечательную библиотеку для разработки UI автотестов &lt;a href="http://selenide.org/"&gt;Selenide&lt;/a&gt;. Сим постом исправляю недоразумение. Данная библиотека по сути обертка над Webdriver, разрабатывается она под флагом компании Codeborne, Андреем Солнцевым. Библиотека open source, под лицензией MIT. Пул реквесты принимаются, если по делу, то без проблем. Так что если есть, что добавить своего, то всегда пожалуйста. Собственно &lt;code&gt;Selenide&lt;/code&gt; позволяет легко и не принужденно работать с локаторами, элементами, ожиданиями и т.д. При этом позволяет работать с базовым webdriver, если вам по какой-то причине вдруг не хватает этого. &lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>qa7.ru</title><link href="http://qa7.ru/" rel="alternate"></link><link href="http://qa7.ru/feeds/all.atom.xml" rel="self"></link><id>http://qa7.ru/</id><updated>2017-03-17T20:42:01+03:00</updated><entry><title>А давай бабахнем?</title><link href="http://qa7.ru/blog/2017/03/17/a-davai-babakhnem/" rel="alternate"></link><updated>2017-03-17T20:42:01+03:00</updated><author><name>Erik</name></author><id>tag:qa7.ru,2017-03-17:blog/2017/03/17/a-davai-babakhnem/</id><summary type="html">&lt;p&gt;Всем привет, я опять на связи. 
+На днях возникла необходимость провести нагрузочное тестирование и встал вопрос освежить свои знания в нагрузочном тестировании. В процессе наткнулся на давно известный мне, но который так и не получилось потрогать и пощупать инструмент от яндекса под названием яндекс.Танк (хотя в итоге я все равно взял для своих целей jmeter =) ). Так что давайте потрогаем его вместе. &lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;em&gt;&lt;strong&gt;жахать&lt;/strong&gt; прост. о пушках, минометах и т.д; издать сильный низкий звук при выстреле ◆ Жахнуло, обдало лейтенанта снегом и пламенем, ударило комками земли в лицо, забило рот, катануло по траншее, словно зайчонка. В. П. Астафьев&lt;/em&gt; &lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Живет и разрабатывается он тут: &lt;a href="https://github.com/yandex/yandex-tank"&gt;https://github.com/yandex/yandex-tank&lt;/a&gt; Ни шатко ни валко, кто нибудь да пульнет в него раз в две недели коммит. Собственно что это такое? Сиё есть питонячая обертка над несколькими генераторами нагрузки, которая позволяет вполне себе удобно всадить по самые …  нагрузить какой нибудь сервер, до тех пор пока ему не поплохеет, либо не подавится, что позволит нам узнать основные его параметры производительности. Из коробки поддерживаются следующие генераторы нагрузки (сам танк очевидно ничего не нагружает, он всего лишь говорит кому, что и чем нагружать): &lt;code&gt;phantom&lt;/code&gt;, &lt;code&gt;JMeter&lt;/code&gt;, &lt;code&gt;BFG&lt;/code&gt;, и неведомая мне хрень под названием &lt;code&gt;pandora&lt;/code&gt;.&lt;br/&gt;
+Phantom это нечто, судя по всему разрабатываемое кем-то из яндекса, способное генерировать нагрузку и используемое танком по умолчанию. Старый добрый &lt;code&gt;JMeter&lt;/code&gt; знают все, чтобы воспользоваться им в танке, необходимо подготовить &lt;code&gt;.jmx&lt;/code&gt; с тест планом и подключить нужный плагин. С другими двумя генераторами еще не разобрался. &lt;/p&gt;
+&lt;p&gt;Установка несложная, но сам по себе танк похоже работает только на дебианоподобных системах, типа ubuntu, поэтому если вы не можете себя назавать убунтоводом или же психиатр не поставил вам диагноз ubuntu головного мозга, то стоит воспользоваться докер контейнером, любезно предоставленным нам разработчиками танка. &lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Может бабахнем? Обязательно бабахнем. И не раз. Весь мир в труху! Но потом.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Прежде чем стрелять, надо сначала понять чем, куда, и как. Мы не будем сейчас вдаваться в тонкости профиля нагрузки, типов нагрузки, какие у нас требования к производительности и т.д. Мы просто хотим жахнуть, да посильнее. И это то, что танк умеет! Давайте представим что у нас есть сервер, который мы хотим протестировать, и он крутиться по адресу: 192.168.1.100 на порту 8989. И пульнуть в него мы хотим тысячью HTTP реквестов в течении одной минуты. Что нам для этого надо? Очевидно нам нужно как-то сказать танку что мы от него хотим, поэтому мы создаем конфигурацию нагрузки. По умолчанию танк для этих целей ищет и потом использует файл load.ini поэтому создаем его со следующим содержимым:&lt;/p&gt;
+&lt;table class="codehilitetable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
+2
+3
+4&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="k"&gt;[phantom]&lt;/span&gt;
+&lt;span class="na"&gt;address&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;192.168.1.100&lt;/span&gt;
+&lt;span class="na"&gt;port&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;8989&lt;/span&gt;
+&lt;span class="na"&gt;rps_schedule&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;const(1000, 60s)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;p&gt;Все на первый взгляд очевидно, но для самых продвинутых подсказываю: &lt;code&gt;[phantom]&lt;/code&gt; это название секции которую он же и будет использовать для нагрузки. &lt;code&gt;address&lt;/code&gt; это собственно адрес, а &lt;code&gt;port&lt;/code&gt; собственно порт. А вот с rps_schedule поинтересней  будет, нигде в документации не сказано, что это и зачем, поэтому методом дедукции предполагаем что это некое расписание нагрузки… на самом деле это ключевой параметр который задает профиль нагрузки. Он может быть следующих видов:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;сonst(1, 20s)&lt;/code&gt; постоянная нагрузка в 1 rps в течении 20 сек&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;line(1, 100, 10m)&lt;/code&gt; линейная нагрузка с 1 rps до 100 rps, в течении 10 минут&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;step(5, 100, 5, 60)&lt;/code&gt; пошаговая нагрузка с 5 rps до 100 rps c шагом 5 rps в течении 60 секунд&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Далее… Дальше нам  нужно понять что конкретно нужно делать. Дёргать один URI или несколько?  Какие заголовки использовать? Какие куки? &lt;/p&gt;
+&lt;p&gt;Слышу стук. Это нетерпеливый читатель, бьет копытом и вопрошает: ну когда же жахнем?! 
+Скоро.. Осталось совсем немного.&lt;/p&gt;
+&lt;p&gt;Добавляем в &lt;code&gt;load.ini&lt;/code&gt; заголовки и uri по которым будем стрелять:&lt;/p&gt;
+&lt;table class="codehilitetable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt; 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="k"&gt;[phantom]&lt;/span&gt;
+&lt;span class="na"&gt;address&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;192.168.1.100&lt;/span&gt;
+&lt;span class="na"&gt;port&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;8989&lt;/span&gt;
+&lt;span class="na"&gt;rps_schedule&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;const(1000, 60s)&lt;/span&gt;
+
+&lt;span class="na"&gt;headers&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;[Host: www.target.com]&lt;/span&gt;
+&lt;span class="s"&gt;  [Connection: close]&lt;/span&gt;
+
+&lt;span class="na"&gt;uris&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;/&lt;/span&gt;
+&lt;span class="s"&gt;  /test&lt;/span&gt;
+&lt;span class="s"&gt;  /test?param=10&lt;/span&gt;
+&lt;span class="s"&gt;  /test/path/resource&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;p&gt;Ну вот теперь все, можно жахать.
+А жахнем мы выполнив команду находясь в той же директории, что и наш файл &lt;code&gt;load.ini&lt;/code&gt;:&lt;/p&gt;
+&lt;table class="codehilitetable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="x"&gt;docker run -v &lt;/span&gt;&lt;span class="p"&gt;$(&lt;/span&gt;&lt;span class="err"&gt;pwd&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="x"&gt;:/var/loadtest -v &lt;/span&gt;&lt;span class="p"&gt;$&lt;/span&gt;&lt;span class="nv"&gt;HOME&lt;/span&gt;&lt;span class="x"&gt;/.ssh:/root/.ssh --net host -it direvius/yandex-tank --name tank&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;p&gt;Расшифровывать что эта строка значит, не буду, не маленькие. Сразу после скачивания и запуска контейенера пойдет нагрузка. Должна по крайней мере.&lt;/p&gt;
+&lt;p&gt;Вот собственно и жахнули. Не впечатлило? А все потому, что мы и не поняли, что произошло. А чтобы понять подключим мы еще пару фич. Для этого выполним еще пару телодвижений:&lt;/p&gt;
+&lt;p&gt;Для начала заходим на https://overload.yandex.net/ авторизовываемся и получаем  свой api token.
+Сохраняем его в файл &lt;code&gt;token.txt&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Добавляем еще несколько строк в файл &lt;code&gt;load.ini&lt;/code&gt;&lt;/p&gt;
+&lt;table class="codehilitetable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt; 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="k"&gt;[phantom]&lt;/span&gt;
+&lt;span class="na"&gt;address&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;192.168.1.100&lt;/span&gt;
+&lt;span class="na"&gt;port&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;8989&lt;/span&gt;
+&lt;span class="na"&gt;rps_schedule&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;const(1000, 60s)&lt;/span&gt;
+
+&lt;span class="na"&gt;headers&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;[Host: www.target.com]&lt;/span&gt;
+&lt;span class="s"&gt;  [Connection: close]&lt;/span&gt;
+
+&lt;span class="na"&gt;uris&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;/&lt;/span&gt;
+&lt;span class="s"&gt;  /test&lt;/span&gt;
+&lt;span class="s"&gt;  /test?param=10&lt;/span&gt;
+&lt;span class="s"&gt;  /test/path/resource&lt;/span&gt;
+
+&lt;span class="k"&gt;[overload]&lt;/span&gt;
+&lt;span class="na"&gt;token_file&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;token.txt&lt;/span&gt;
+
+&lt;span class="k"&gt;[tank]&lt;/span&gt;
+&lt;span class="na"&gt;plugin_overload&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;yandextank.plugins.Overload&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;p&gt;Сохраняем и жахаем еще раз:&lt;/p&gt;
+&lt;table class="codehilitetable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="codehilite"&gt;&lt;pre&gt;docker start tank
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;p&gt;затем смотрим в логи танка и ищем строку вида: &lt;code&gt;Web link: https://overload.yandex.net/XXXX&lt;/code&gt;:&lt;/p&gt;
+&lt;table class="codehilitetable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="codehilite"&gt;&lt;pre&gt;docker logs tank
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;p&gt;Проходим по ссылке и наслаждаемся графиками, и сразу становиться ясно, что не зря столько старались.&lt;/p&gt;
+&lt;p&gt;Всем спасибо, на сегодня все.&lt;/p&gt;
+&lt;p&gt;PS&lt;/p&gt;
+&lt;p&gt;В ходе данной пристрелки, ни одного программиста не пострадало.&lt;/p&gt;</summary></entry><entry><title>Selenide пост</title><link href="http://qa7.ru/blog/2016/08/15/selenide-post/" rel="alternate"></link><updated>2016-08-15T20:25:03+03:00</updated><author><name>Erik</name></author><id>tag:qa7.ru,2016-08-15:blog/2016/08/15/selenide-post/</id><summary type="html">&lt;p&gt;Как-то так получилось, что я обошел вниманием в этом блоге замечательную библиотеку для разработки UI автотестов &lt;a href="http://selenide.org/"&gt;Selenide&lt;/a&gt;. Сим постом исправляю недоразумение. Данная библиотека по сути обертка над Webdriver, разрабатывается она под флагом компании Codeborne, Андреем Солнцевым. Библиотека open source, под лицензией MIT. Пул реквесты принимаются, если по делу, то без проблем. Так что если есть, что добавить своего, то всегда пожалуйста. Собственно &lt;code&gt;Selenide&lt;/code&gt; позволяет легко и не принужденно работать с локаторами, элементами, ожиданиями и т.д. При этом позволяет работать с базовым webdriver, если вам по какой-то причине вдруг не хватает этого. &lt;/p&gt;
 &lt;p&gt;Если вы никогда не писали тесты используя &lt;code&gt;Selenium/Webdriver&lt;/code&gt;, я настоятельно рекомендую начать пользоваться ими посредством &lt;code&gt;Selenide&lt;/code&gt;.
 Если вы уберзакостенелый пользователь &lt;code&gt;Selenium/Webdriver&lt;/code&gt; и еще не используете &lt;code&gt;Selenide&lt;/code&gt;, я еще более рекомендую начать им пользоваться. 
 Первым это позволит начать писать тесты не отвлекаясь на реализацию своих велосипедов(ожидания, проверки и т.д.) и сэкономит кучу времени и нервов, вторым же это позволит наконец-то писать лаконичные, стабильные тесты и по делу.&lt;/p&gt;
