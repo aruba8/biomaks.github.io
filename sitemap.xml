@@ -5,7 +5,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://qa7.ru/</loc>
-<lastmod>2017-03-19T16:24:03-00:00</lastmod>
+<lastmod>2017-04-10T21:47:14-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -20,6 +20,13 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
 <loc>http://qa7.ru/projects/</loc>
 <lastmod>2012-10-09T15:09:03+04:00</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://qa7.ru/blog/2017/04/02/likbez-po-jmeter/</loc>
+<lastmod>2017-04-02T20:14:07+03:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
@@ -306,7 +313,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://qa7.ru/author/erik.html</loc>
-<lastmod>2017-03-17T20:42:01+02:30</lastmod>
+<lastmod>2017-04-02T20:14:07+02:30</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
